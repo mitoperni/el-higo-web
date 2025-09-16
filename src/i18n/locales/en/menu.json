@@ -1,79 +1,115 @@
 {
   "title": "Our Menu",
+  "subtitle": "Authentic flavors in the heart of the Albaicín",
   "categories": {
-    "starters": "Starters",
-    "meats": "Meats",
-    "fish": "Fish",
-    "desserts": "Desserts"
+    "portions": "Portions",
+    "sandwiches": "Sandwiches",
+    "salads": "Salads",
+    "meat_and_fish": "Meat & Fish"
   },
   "items": {
-    "starters": [
+    "portions": [
       {
-        "name": "Acorn-fed Iberian Ham",
-        "description": "Selection of acorn-fed Iberian ham, hand-carved",
+        "name": "Avocado with prawns",
+        "description": "Avocado, prawns, homemade cocktail sauce",
+        "price": "9.50€",
+        "options": "Vegan option: with vegan cocktail sauce and nuts"
+      },
+      {
+        "name": "Hummus",
+        "description": "Chickpeas, lemon, garlic, tahini, cumin, EVOO",
+        "price": "11€"
+      },
+      {
+        "name": "Smoked Idiazábal cheese",
+        "description": "Sheep's milk cheese",
+        "price": "12€"
+      },
+      {
+        "name": "Trevélez ham",
+        "description": "Smoked ham from the Alpujarras",
+        "price": "11€"
+      },
+      {
+        "name": "Tuna tataki",
+        "description": "Marinated with soy sauce, ginger and vinegars, sesame coated",
+        "price": "20€"
+      },
+      {
+        "name": "Vegan pâté board",
+        "description": "Carrot, beetroot, black olives and eggplant",
         "price": "18€"
       },
       {
-        "name": "Andalusian Gazpacho",
-        "description": "Traditional gazpacho with tomato, cucumber, pepper and extra virgin olive oil",
+        "name": "Soup of the day",
+        "description": "Ask our staff",
+        "price": "17€"
+      }
+    ],
+    "sandwiches": [
+      {
+        "name": "Salmon",
+        "description": "Smoked salmon, avocado, lettuce and onion cream with cheese",
+        "price": "18€"
+      },
+      {
+        "name": "Vegetal",
+        "description": "Goat cheese, arugula, apple, caramelized onion and red pepper jam",
         "price": "8€"
       },
       {
-        "name": "Eggplant with Honey",
-        "description": "Fried eggplant with Granada sugar cane honey",
-        "price": "9€"
+        "name": "Vegan burger",
+        "description": "Spinach or oat burger 180g, tomato, lettuce, pickles, caramelized onion, mayonnaise and Dijon mustard",
+        "options": "Gluten-free option: spinach and gluten-free bread"
+      },
+      {
+        "name": "Beef burger",
+        "description": "200g prime beef, tomato, lettuce, pickles, caramelized onion, mayonnaise and mustard"
       }
     ],
-    "meats": [
+    "salads": [
       {
-        "name": "Lamb with Honey",
-        "description": "Roasted milk-fed lamb leg with honey and Moorish spices",
-        "price": "24€"
+        "name": "El Higo",
+        "description": "Mixed greens, tomato, spring onion, carrot, cucumber, corn, varied fruits and goat cheese sauce"
       },
       {
-        "name": "Oxtail Stew",
-        "description": "Oxtail braised with Montilla-Moriles wine",
-        "price": "22€"
+        "name": "Spinach and turkey",
+        "description": "Spinach, cherry tomato, pear, grilled turkey breast with sesame, walnuts, sunflower seeds, parmesan cheese and seasonal jam vinaigrette with EVOO",
+        "options": "Vegetarian: goat cheese • Vegan: turkey substitute (seitan base) and vegan parmesan"
       },
       {
-        "name": "Iberian Secret",
-        "description": "Grilled Iberian pork with Pedro Ximénez sauce",
-        "price": "20€"
+        "name": "Smoked fish",
+        "description": "Smoked cod, pomfret, swordfish and salmon, guacamole and green leaves"
+      },
+      {
+        "name": "Caprese di buffala",
+        "description": "Tomato, buffalo mozzarella and basil pesto with walnuts and EVOO"
       }
     ],
-    "fish": [
+    "meat_and_fish": [
       {
-        "name": "Salt-Crusted Sea Bass",
-        "description": "Fresh sea bass cooked in sea salt crust",
-        "price": "26€"
+        "name": "Red tuna",
+        "description": "with wok vegetables"
       },
       {
-        "name": "Cod with Tomato",
-        "description": "Confited cod with natural tomato and olives",
-        "price": "19€"
+        "name": "Gratinated cod",
+        "description": "with wok vegetables"
       },
       {
-        "name": "Seafood Paella",
-        "description": "Traditional paella with prawns, mussels and squid",
-        "price": "28€"
-      }
-    ],
-    "desserts": [
-      {
-        "name": "Pionono de Santa Fe",
-        "description": "Traditional Granada sweet with toasted cream",
-        "price": "7€"
+        "name": "Beef skirt steak",
+        "description": "with garnish"
       },
       {
-        "name": "Grandma's French Toast",
-        "description": "Homemade French toast with honey and cinnamon",
-        "price": "6€"
+        "name": "Beef cheek",
+        "description": "in carrot, mustard and honey sauce, with couscous garnish"
       },
       {
-        "name": "Fried Milk",
-        "description": "Traditional dessert with cinnamon and sugar",
-        "price": "6€"
+        "name": "Children's dish",
+        "description": "Grilled turkey with potatoes"
       }
     ]
-  }
+  },
+  "allergens": "Please ask our staff about allergens and food intolerances",
+  "reserve_button": "Book Table",
+  "note": "Ask our staff about vegetarian, vegan and gluten-free options"
 }

@@ -32,21 +32,23 @@ const Navbar = () => {
     const path = location.pathname;
     if (path === "/" || path === "/en") return "/";
     if (path === "/carta" || path === "/en/menu") return "/carta";
+    if (path === "/el-patio" || path === "/en/the-patio") return "/el-patio";
+    if (path === "/como-llegar" || path === "/en/how-to-find-us") return "/como-llegar";
     if (path === "/reservas" || path === "/en/reservations") return "/reservas";
     if (path === "/contacto" || path === "/en/contact") return "/contacto";
     return path;
   };
 
   return (
-    <nav className="bg-white shadow-md fixed w-full top-0 z-50">
+    <nav className="bg-cream shadow-md fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <LanguageLink
               to="/"
-              className="text-2xl font-bold text-amber-600 hover:text-amber-700 transition-colors"
+              className="text-2xl font-display font-bold text-terracotta hover:text-green-leaf transition-colors"
             >
-              La Sacristía
+              El Higo
             </LanguageLink>
           </div>
 
@@ -56,25 +58,45 @@ const Navbar = () => {
                 to="/carta"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   getCurrentBasePath() === "/carta"
-                    ? "bg-amber-100 text-amber-700"
-                    : "text-gray-700 hover:bg-amber-50 hover:text-amber-600"
+                    ? "bg-terracotta/20 text-terracotta"
+                    : "text-dark-text hover:bg-terracotta/10 hover:text-terracotta"
                 }`}
               >
                 {t("navbar.menu")}
               </LanguageLink>
               <LanguageLink
+                to="/el-patio"
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  getCurrentBasePath() === "/el-patio"
+                    ? "bg-terracotta/20 text-terracotta"
+                    : "text-dark-text hover:bg-terracotta/10 hover:text-terracotta"
+                }`}
+              >
+                {t("navbar.thePatio")}
+              </LanguageLink>
+              <LanguageLink
+                to="/como-llegar"
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  getCurrentBasePath() === "/como-llegar"
+                    ? "bg-terracotta/20 text-terracotta"
+                    : "text-dark-text hover:bg-terracotta/10 hover:text-terracotta"
+                }`}
+              >
+                {t("navbar.howToFindUs")}
+              </LanguageLink>
+              <LanguageLink
                 to="/reservas"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   getCurrentBasePath() === "/reservas"
-                    ? "bg-amber-100 text-amber-700"
-                    : "text-gray-700 hover:bg-amber-50 hover:text-amber-600"
+                    ? "bg-terracotta/20 text-terracotta"
+                    : "text-dark-text hover:bg-terracotta/10 hover:text-terracotta"
                 }`}
               >
                 {t("navbar.reservations")}
               </LanguageLink>
               <button
                 onClick={() => handleNavigation("/", "reviews")}
-                className="text-gray-700 hover:bg-amber-50 hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-dark-text hover:bg-terracotta/10 hover:text-terracotta px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 {t("navbar.reviews")}
               </button>
@@ -82,8 +104,8 @@ const Navbar = () => {
                 to="/contacto"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   getCurrentBasePath() === "/contacto"
-                    ? "bg-amber-100 text-amber-700"
-                    : "text-gray-700 hover:bg-amber-50 hover:text-amber-600"
+                    ? "bg-terracotta/20 text-terracotta"
+                    : "text-dark-text hover:bg-terracotta/10 hover:text-terracotta"
                 }`}
               >
                 {t("navbar.contact")}
@@ -94,7 +116,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center">
             <button
               onClick={toggleLanguage}
-              className="bg-amber-600 hover:bg-amber-700 text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              className="bg-terracotta hover:bg-green-leaf text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
             >
               {i18n.language === "es" ? "EN" : "ES"}
             </button>
@@ -103,7 +125,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-amber-600 hover:bg-amber-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-amber-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-dark-text hover:text-terracotta hover:bg-terracotta/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-terracotta"
             >
               <svg
                 className={`${isMenuOpen ? "hidden" : "block"} h-6 w-6`}
@@ -140,38 +162,54 @@ const Navbar = () => {
 
       {isMenuOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-cream shadow-lg">
             <LanguageLink
               to="/carta"
               onClick={() => setIsMenuOpen(false)}
               className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors ${
                 getCurrentBasePath() === "/carta"
-                  ? "bg-amber-100 text-amber-700"
-                  : "text-gray-700 hover:bg-amber-50 hover:text-amber-600"
+                  ? "bg-terracotta/20 text-terracotta"
+                  : "text-dark-text hover:bg-terracotta/10 hover:text-terracotta"
               }`}
             >
               {t("navbar.menu")}
+            </LanguageLink>
+            <LanguageLink
+              to="/el-patio"
+              onClick={() => setIsMenuOpen(false)}
+              className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors ${
+                getCurrentBasePath() === "/el-patio"
+                  ? "bg-terracotta/20 text-terracotta"
+                  : "text-dark-text hover:bg-terracotta/10 hover:text-terracotta"
+              }`}
+            >
+              {t("navbar.thePatio")}
+            </LanguageLink>
+            <LanguageLink
+              to="/como-llegar"
+              onClick={() => setIsMenuOpen(false)}
+              className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors ${
+                getCurrentBasePath() === "/como-llegar"
+                  ? "bg-terracotta/20 text-terracotta"
+                  : "text-dark-text hover:bg-terracotta/10 hover:text-terracotta"
+              }`}
+            >
+              {t("navbar.howToFindUs")}
             </LanguageLink>
             <LanguageLink
               to="/reservas"
               onClick={() => setIsMenuOpen(false)}
               className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors ${
                 getCurrentBasePath() === "/reservas"
-                  ? "bg-amber-100 text-amber-700"
-                  : "text-gray-700 hover:bg-amber-50 hover:text-amber-600"
+                  ? "bg-terracotta/20 text-terracotta"
+                  : "text-dark-text hover:bg-terracotta/10 hover:text-terracotta"
               }`}
             >
               {t("navbar.reservations")}
             </LanguageLink>
             <button
-              onClick={() => handleNavigation("/", "gallery")}
-              className="text-gray-700 hover:bg-amber-50 hover:text-amber-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
-            >
-              {t("navbar.gallery")}
-            </button>
-            <button
               onClick={() => handleNavigation("/", "reviews")}
-              className="text-gray-700 hover:bg-amber-50 hover:text-amber-600 block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
+              className="text-dark-text hover:bg-terracotta/10 hover:text-terracotta block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
             >
               {t("navbar.reviews")}
             </button>
@@ -180,8 +218,8 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
               className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors ${
                 getCurrentBasePath() === "/contacto"
-                  ? "bg-amber-100 text-amber-700"
-                  : "text-gray-700 hover:bg-amber-50 hover:text-amber-600"
+                  ? "bg-terracotta/20 text-terracotta"
+                  : "text-dark-text hover:bg-terracotta/10 hover:text-terracotta"
               }`}
             >
               {t("navbar.contact")}
@@ -189,7 +227,7 @@ const Navbar = () => {
             <div className="px-3 py-2">
               <button
                 onClick={toggleLanguage}
-                className="bg-amber-600 hover:bg-amber-700 text-white px-3 py-2 rounded-md text-sm font-medium w-full transition-colors"
+                className="bg-terracotta hover:bg-green-leaf text-white px-3 py-2 rounded-md text-sm font-medium w-full transition-colors"
               >
                 {i18n.language === "es" ? "English" : "Español"}
               </button>

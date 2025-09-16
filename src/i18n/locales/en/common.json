@@ -2,46 +2,82 @@
   "navbar": {
     "home": "Home",
     "menu": "Menu",
+    "thePatio": "The Patio",
+    "howToFindUs": "How to Find Us",
     "reservations": "Reservations",
-    "gallery": "Gallery",
     "reviews": "Reviews",
     "contact": "Contact"
   },
   "hero": {
-    "title": "Traditional cuisine in the heart of Granada",
-    "subtitle": "Enjoy the authentic flavors of Andalusia in a unique atmosphere",
-    "viewMenu": "View menu",
-    "reserveButton": "Reserve a table",
-    "menuButton": "View menu"
+    "title": "Discover El Higo",
+    "subtitle": "A hidden gem in Granada's Albaicín",
+    "cta": "Book a table"
+  },
+  "menu": {
+    "title": "Our Menu",
+    "subtitle": "Authentic flavors in the heart of the Albaicín",
+    "tapas": {
+      "title": "Tapas",
+      "hummus": "Homemade hummus with extra virgin olive oil",
+      "berenjenas": "Eggplant with cane honey",
+      "tajin": "Vegetable tajine with Moroccan spices"
+    },
+    "vegetarian": {
+      "title": "Vegetarian & Vegan Options",
+      "vegBurger": "Vegan burger with artisanal bread",
+      "vegTapas": "Selection of seasonal vegetarian tapas"
+    },
+    "drinks": {
+      "title": "Drinks",
+      "wine": "Local wines from Granada",
+      "beer": "Craft beers",
+      "tea": "Traditional Moorish tea"
+    }
+  },
+  "thePatio": {
+    "title": "The Patio",
+    "subtitle": "Our magical corner",
+    "description": "A hidden patio with plants, warm lights, and the true charm of the Albaicín. An intimate space where every corner tells a story."
+  },
+  "howToFindUs": {
+    "title": "How to Find Us",
+    "subtitle": "We await you in the heart of the Albaicín",
+    "directions": "We're located in the Albaicín, on a quiet street. Look for the door with flower pots and go down the stairs. It's a special place worth discovering.",
+    "address": "C. Horno del Hoyo 17, Albaicín",
+    "city": "18010 Granada"
   },
   "reservations": {
     "title": "Reservations",
-    "subtitle": "Book your table and enjoy a unique gastronomic experience",
-    "button": "Book Table",
+    "subtitle": "We recommend booking for dinner",
     "whatsapp": "Book via WhatsApp",
-    "phone": "Call to Reserve"
-  },
-  "gallery": {
-    "title": "Gallery",
-    "subtitle": "Discover the beauty of our restaurant and our dishes"
+    "thefork": "Book with TheFork",
+    "phone": "+34 858 98 41 02",
+    "note": "For an optimal experience, we recommend making your reservation in advance."
   },
   "reviews": {
     "title": "Reviews",
-    "subtitle": "What our customers say",
-    "writeNew": "Write a new review"
+    "subtitle": "What our visitors say",
+    "review1": "Tucked away but worth it. The patio atmosphere is unique.",
+    "review2": "Great vegetarian options and very welcoming service.",
+    "review3": "A magical corner in the Albaicín. The food and atmosphere are incredible.",
+    "tripadvisor": "See more on TripAdvisor"
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "Visit us in the heart of Granada",
-    "address": "Calle del Sacramento, 15, Granada",
-    "phone": "+34 958 123 456",
-    "email": "info@lasacristiagranada.com",
+    "subtitle": "Visit us in the Albaicín",
+    "address": "C. Horno del Hoyo 17, Albaicín",
+    "city": "18010 Granada",
+    "phone": "+34 858 98 41 02",
     "hours": "Opening Hours",
-    "hoursDetail": "Tuesday to Sunday: 1:00 PM - 4:00 PM, 8:00 PM - 12:00 AM"
+    "hoursDetail": "12:30–4:30 PM / 6:30–11:30 PM",
+    "closed": "Closed Mondays",
+    "socialMedia": "Follow us on social media"
   },
   "footer": {
-    "rights": "© 2024 La Sacristía. All rights reserved.",
+    "brand": "El Higo",
+    "hours": "12:30–4:30 PM / 6:30–11:30 PM (Closed Mondays)",
     "followUs": "Follow us",
-    "location": "Location"
+    "location": "Albaicín, Granada",
+    "disclaimer": "Website mockup created for demonstration purposes."
   }
 }

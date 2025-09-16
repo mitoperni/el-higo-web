@@ -7,7 +7,7 @@ const StarRating = ({ rating }) => {
         <svg
           key={star}
           className={`w-5 h-5 ${
-            star <= rating ? "text-yellow-400" : "text-gray-300"
+            star <= rating ? "text-terracotta" : "text-gray-300"
           }`}
           fill="currentColor"
           viewBox="0 0 20 20"
@@ -22,21 +22,21 @@ const StarRating = ({ rating }) => {
 const ReviewCard = ({ review }) => (
   <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
     <div className="flex items-center mb-4">
-      <div className="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
-        {review.name.charAt(0)}
+      <div className="w-12 h-12 bg-terracotta rounded-full flex items-center justify-center text-white font-bold text-lg">
+        {review.name ? review.name.charAt(0) : 'A'}
       </div>
       <div className="ml-4">
-        <h3 className="font-semibold text-gray-800">{review.name}</h3>
-        <p className="text-sm text-gray-600">{review.date}</p>
+        <h3 className="font-display font-semibold text-dark-text">{review.name || 'Anonymous'}</h3>
+        <p className="text-sm text-dark-text opacity-70 font-body">{review.date || 'Recent'}</p>
       </div>
     </div>
 
     <StarRating rating={review.rating} />
 
-    <p className="text-gray-700 leading-relaxed">{review.comment}</p>
+    <p className="text-dark-text leading-relaxed font-body">{review.comment}</p>
 
     <div className="mt-4 pt-4 border-t border-gray-200">
-      <div className="flex items-center text-sm text-gray-500">
+      <div className="flex items-center text-sm text-dark-text opacity-60 font-body">
         <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
           <path
             fillRule="evenodd"
@@ -44,75 +44,97 @@ const ReviewCard = ({ review }) => (
             clipRule="evenodd"
           />
         </svg>
-        Verified customer
+        TripAdvisor / Google Reviews
       </div>
     </div>
   </div>
 );
 
 const Reviews = () => {
-  const { t } = useTranslation(["common", "reviews"]);
+  const { t } = useTranslation();
 
-  const reviews =
-    t("reviews.reviews", { returnObjects: true, ns: "reviews" }) || [];
+  const reviews = [
+    {
+      name: "María S.",
+      rating: 5,
+      comment: t('reviews.review1'),
+      date: "TripAdvisor"
+    },
+    {
+      name: "James P.",
+      rating: 5,
+      comment: t('reviews.review2'),
+      date: "Google Reviews"
+    },
+    {
+      name: "Carmen G.",
+      rating: 5,
+      comment: t('reviews.review3'),
+      date: "TripAdvisor"
+    }
+  ];
 
-  const averageRating =
-    Array.isArray(reviews) && reviews.length > 0
-      ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length
-      : 0;
+  const averageRating = 5;
 
   return (
-    <section id="reviews" className="py-20 bg-gray-50">
+    <section id="reviews" className="py-20 bg-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-dark-text mb-4">
             {t("reviews.title")}
           </h2>
-          <div className="w-24 h-1 bg-amber-600 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-terracotta mx-auto mb-6"></div>
+          <p className="text-xl text-dark-text mb-8 max-w-2xl mx-auto font-body">
             {t("reviews.subtitle")}
           </p>
 
           <div className="flex justify-center items-center space-x-4 mb-8">
             <div className="flex items-center">
               <StarRating rating={Math.round(averageRating)} />
-              <span className="ml-2 text-2xl font-bold text-gray-800">
+              <span className="ml-2 text-2xl font-display font-bold text-dark-text">
                 {averageRating.toFixed(1)}
               </span>
             </div>
-            <span className="text-gray-600">
-              Based on {Array.isArray(reviews) ? reviews.length : 0} reviews
+            <span className="text-dark-text font-body">
+              Basado en {reviews.length} opiniones / Based on {reviews.length} reviews
             </span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {Array.isArray(reviews) &&
-            reviews.map((review, index) => (
-              <ReviewCard key={index} review={review} />
-            ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {reviews.map((review, index) => (
+            <ReviewCard key={index} review={review} />
+          ))}
         </div>
 
-        <div className="text-center mt-12">
-          <a
-            href="https://search.google.com/local/writereview?placeid=ChIJ14VyL-_8cQ0Rg_0a_nvhQx0"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
-          >
-            <svg
-              className="w-5 h-5 mr-2"
-              fill="currentColor"
-              viewBox="0 0 20 20"
+        <div className="text-center mt-16">
+          <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-display font-bold text-dark-text mb-4">
+              {t('reviews.tripadvisor')}
+            </h3>
+            <p className="text-dark-text mb-6 font-body">
+              Comparte tu experiencia en El Higo / Share your El Higo experience
+            </p>
+            <a
+              href="https://www.tripadvisor.com/UserReviewEdit-g187441-d123456-El_Higo-Granada.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-terracotta hover:bg-green-leaf text-white font-body font-bold py-3 px-8 rounded-lg transition-colors duration-300"
             >
-              <path
-                fillRule="evenodd"
-                d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                clipRule="evenodd"
-              />
-            </svg>
-            {t("reviews.writeNew")}
-          </a>
+              <svg
+                className="w-5 h-5 mr-2"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              {t('reviews.tripadvisor')}
+            </a>
+          </div>
         </div>
       </div>
     </section>

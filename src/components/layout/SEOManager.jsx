@@ -1,6 +1,6 @@
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function SEOManager() {
   const { t, i18n } = useTranslation();
@@ -8,7 +8,7 @@ function SEOManager() {
 
   const getCanonicalUrl = () => {
     const path = location.pathname;
-    const baseUrl = 'https://lasacristiagranada.com';
+    const baseUrl = 'https://elhigogranada.com';
 
     if (path === '/' || path === '/en') {
       return path === '/en' ? `${baseUrl}/en` : baseUrl;
@@ -18,7 +18,7 @@ function SEOManager() {
 
   const getAlternateUrls = () => {
     const path = location.pathname;
-    const baseUrl = 'https://lasacristiagranada.com';
+    const baseUrl = 'https://elhigogranada.com';
 
     if (path === '/' || path === '/en') {
       return {
@@ -29,6 +29,16 @@ function SEOManager() {
       return {
         es: `${baseUrl}/carta`,
         en: `${baseUrl}/en/menu`
+      };
+    } else if (path === '/el-patio' || path === '/en/the-patio') {
+      return {
+        es: `${baseUrl}/el-patio`,
+        en: `${baseUrl}/en/the-patio`
+      };
+    } else if (path === '/como-llegar' || path === '/en/how-to-find-us') {
+      return {
+        es: `${baseUrl}/como-llegar`,
+        en: `${baseUrl}/en/how-to-find-us`
       };
     } else if (path === '/reservas' || path === '/en/reservations') {
       return {
@@ -47,24 +57,28 @@ function SEOManager() {
 
   const alternateUrls = getAlternateUrls();
 
+  // Update html lang attribute using useEffect for the html tag
+  useEffect(() => {
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
+
   return (
-    <Helmet>
-      <html lang={i18n.language} />
-      <title>La Sacristía - {t("hero.title")}</title>
+    <>
+      <title>El Higo - {t("hero.title")}</title>
       <meta name="description" content={t("hero.subtitle")} />
       <meta
         name="keywords"
-        content="restaurante, Granada, cocina tradicional, andaluza, tapas, jamón ibérico"
+        content="El Higo, restaurante Granada, Albaicín, patio escondido, tapas, vegetariano, vegano, hummus, berenjenas, tajín, hidden restaurant Granada, vegetarian Granada"
       />
 
       <meta property="og:type" content="restaurant" />
-      <meta property="og:title" content={`La Sacristía - ${t("hero.title")}`} />
+      <meta property="og:title" content={`El Higo - ${t("hero.title")}`} />
       <meta property="og:description" content={t("hero.subtitle")} />
-      <meta property="og:url" content="https://lasacristiagranada.com" />
-      <meta property="og:site_name" content="La Sacristía" />
+      <meta property="og:url" content="https://elhigogranada.com" />
+      <meta property="og:site_name" content="El Higo" />
       <meta
         property="og:image"
-        content="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+        content="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
       />
       <meta
         property="og:locale"
@@ -74,12 +88,12 @@ function SEOManager() {
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:title"
-        content={`La Sacristía - ${t("hero.title")}`}
+        content={`El Higo - ${t("hero.title")}`}
       />
       <meta name="twitter:description" content={t("hero.subtitle")} />
       <meta
         name="twitter:image"
-        content="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+        content="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
       />
 
       <link rel="canonical" href={getCanonicalUrl()} />
@@ -91,25 +105,44 @@ function SEOManager() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Restaurant",
-          name: "La Sacristía",
-          description: t("hero.subtitle"),
+          name: "El Higo",
+          description: "Restaurante acogedor en el Albaicín de Granada con tapas, opciones vegetarianas y un encantador patio escondido",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Calle del Sacramento, 15",
+            streetAddress: "C. Horno del Hoyo 17, Albaicín",
             addressLocality: "Granada",
-            postalCode: "18001",
+            postalCode: "18010",
             addressCountry: "ES",
           },
-          telephone: "+34958123456",
-          url: "https://lasacristiagranada.com",
-          openingHours: ["Tu-Su 13:00-16:00", "Tu-Su 20:00-24:00"],
-          servesCuisine: "Andalusian",
-          priceRange: "€€",
-          image:
-            "https://www.granadadigital.es/wp-content/uploads/2019/11/Foto-dentro-2.jpg",
+          telephone: "+34858984102",
+          url: "https://elhigogranada.com",
+          openingHours: ["Tu-Su 12:30-16:30", "Tu-Su 18:30-23:30"],
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              opens: "12:30",
+              closes: "16:30"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              opens: "18:30",
+              closes: "23:30"
+            }
+          ],
+          servesCuisine: ["Spanish", "Mediterranean", "Vegetarian", "Vegan", "Tapas"],
+          priceRange: "$$",
+          hasMenu: "https://elhigogranada.com/carta",
+          acceptsReservations: "True",
+          image: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+          sameAs: [
+            "https://www.facebook.com/elhigogranada",
+            "https://www.instagram.com/elhigogranada"
+          ]
         })}
       </script>
-    </Helmet>
+    </>
   );
 }
 

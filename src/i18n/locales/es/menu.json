@@ -1,79 +1,115 @@
 {
   "title": "Nuestra Carta",
+  "subtitle": "Sabores auténticos en el corazón del Albaicín",
   "categories": {
-    "starters": "Entrantes",
-    "meats": "Carnes",
-    "fish": "Pescados",
-    "desserts": "Postres"
+    "portions": "Raciones",
+    "sandwiches": "Bocadillos",
+    "salads": "Ensaladas",
+    "meat_and_fish": "Carnes y Pescados"
   },
   "items": {
-    "starters": [
+    "portions": [
       {
-        "name": "Jamón Ibérico de Bellota",
-        "description": "Selección de jamón ibérico de bellota cortado a cuchillo",
+        "name": "Aguacate con langostinos",
+        "description": "Aguacate, langostinos, salsa cocktail casera",
+        "price": "9,50€",
+        "options": "Opción vegana: con salsa cocktail vegana y frutos secos"
+      },
+      {
+        "name": "Hummus",
+        "description": "Garbanzos, limón, ajo, tahini, comino, AOVE",
+        "price": "11€"
+      },
+      {
+        "name": "Queso idiazábal ahumado",
+        "description": "Queso de leche de oveja",
+        "price": "12€"
+      },
+      {
+        "name": "Jamón de Trevélez",
+        "description": "Jamón ahumado alpujarreño",
+        "price": "11€"
+      },
+      {
+        "name": "Tataki de atún",
+        "description": "Marinado con salsa de soja, jengibre y vinagres y rebozado en sésamo",
+        "price": "20€"
+      },
+      {
+        "name": "Tabla de patés veganos",
+        "description": "Zanahoria, remolacha, aceitunas negras y berenjena",
         "price": "18€"
       },
       {
-        "name": "Gazpacho Andaluz",
-        "description": "Gazpacho tradicional con tomate, pepino, pimiento y aceite virgen extra",
+        "name": "Crema del día",
+        "description": "Pregunta a nuestro personal",
+        "price": "17€"
+      }
+    ],
+    "sandwiches": [
+      {
+        "name": "Salmón",
+        "description": "Salmón ahumado, aguacate, lechuga y crema de cebolla con queso",
+        "price": "18€"
+      },
+      {
+        "name": "Vegetal",
+        "description": "Queso de cabra, rúcula, manzana, cebolla caramelizada y mermelada de pimiento rojo",
         "price": "8€"
       },
       {
-        "name": "Berenjenas con Miel",
-        "description": "Berenjenas fritas con miel de caña de Granada",
-        "price": "9€"
+        "name": "Hamburguesa vegana",
+        "description": "Hamburguesa de espinacas o avena 180g, tomate, lechuga, pepinillo agridulce, cebolla caramelizada, mayonesa y mostaza de Dijon",
+        "options": "Opción sin gluten: espinaca y pan sin gluten"
+      },
+      {
+        "name": "Hamburguesa de ternera",
+        "description": "200g de carne de ternera 1ª calidad, tomate, lechuga, pepinillo agridulce, cebolla caramelizada, mayonesa y mostaza"
       }
     ],
-    "meats": [
+    "salads": [
       {
-        "name": "Cordero a la Miel",
-        "description": "Pierna de cordero lechal asada con miel y especias moriscas",
-        "price": "24€"
+        "name": "El Higo",
+        "description": "Mezclum de lechugas, tomate, cebolleta, zanahoria, pepino, maíz, frutas variadas y salsa de queso de cabra"
       },
       {
-        "name": "Rabo de Toro",
-        "description": "Rabo de toro guisado con vino de Montilla-Moriles",
-        "price": "22€"
+        "name": "Espinacas y pavo",
+        "description": "Espinacas, tomate cherry, pera, pechuga de pavo a la plancha con sésamo, nueces, pipas de girasol, queso parmesano y vinagreta de mermelada de temporada y AOVE",
+        "options": "Vegetariana: queso de cabra • Vegana: farsa de pavo (base de seitan) y parmesano vegano"
       },
       {
-        "name": "Secreto Ibérico",
-        "description": "Secreto ibérico a la plancha con salsa de Pedro Ximénez",
-        "price": "20€"
+        "name": "Ahumados",
+        "description": "Bacalao, palometa, pez espada y salmón ahumado, guacamole y hojas verdes"
+      },
+      {
+        "name": "Caprese di buffala",
+        "description": "Tomate, mozzarella de buffala y pesto de albahaca con nueces y AOVE"
       }
     ],
-    "fish": [
+    "meat_and_fish": [
       {
-        "name": "Lubina a la Sal",
-        "description": "Lubina fresca cocinada en costra de sal marina",
-        "price": "26€"
+        "name": "Atún rojo",
+        "description": "con verduras al wok"
       },
       {
-        "name": "Bacalao con Tomate",
-        "description": "Bacalao confitado con tomate natural y aceitunas",
-        "price": "19€"
+        "name": "Bacalao gratinado",
+        "description": "con verduras al wok"
       },
       {
-        "name": "Paella de Mariscos",
-        "description": "Paella tradicional con langostinos, mejillones y calamares",
-        "price": "28€"
-      }
-    ],
-    "desserts": [
-      {
-        "name": "Pionono de Santa Fe",
-        "description": "Dulce tradicional granadino con crema tostada",
-        "price": "7€"
+        "name": "Entraña de ternera",
+        "description": "con guarnición"
       },
       {
-        "name": "Torrijas de la Abuela",
-        "description": "Torrijas caseras con miel y canela",
-        "price": "6€"
+        "name": "Carrillada de ternera",
+        "description": "en salsa de zanahoria, mostaza y miel, con guarnición de couscous"
       },
       {
-        "name": "Leche Frita",
-        "description": "Postre tradicional con canela y azúcar",
-        "price": "6€"
+        "name": "Plato infantil",
+        "description": "Pavo a la plancha con papas"
       }
     ]
-  }
+  },
+  "allergens": "Consulta con nuestro personal sobre alérgenos e intolerancias alimentarias",
+  "reserve_button": "Reservar Mesa",
+  "note": "Pregunta a nuestro personal por opciones vegetarianas, veganas y sin gluten"
 }

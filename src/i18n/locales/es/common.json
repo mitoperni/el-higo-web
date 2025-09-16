@@ -2,46 +2,82 @@
   "navbar": {
     "home": "Inicio",
     "menu": "Carta",
+    "thePatio": "El Patio",
+    "howToFindUs": "Cómo llegar",
     "reservations": "Reservas",
-    "gallery": "Galería",
     "reviews": "Opiniones",
     "contact": "Contacto"
   },
   "hero": {
-    "title": "Cocina tradicional en el corazón de Granada",
-    "subtitle": "Disfruta de los sabores auténticos de Andalucía en un ambiente único",
-    "viewMenu": "Ver la carta",
-    "reserveButton": "Reservar una mesa",
-    "menuButton": "Ver la carta"
+    "title": "Descubre El Higo",
+    "subtitle": "Un rincón escondido en el Albaicín de Granada",
+    "cta": "Reserva tu mesa"
+  },
+  "menu": {
+    "title": "Nuestra Carta",
+    "subtitle": "Sabores auténticos en el corazón del Albaicín",
+    "tapas": {
+      "title": "Tapas",
+      "hummus": "Hummus casero con aceite de oliva virgen extra",
+      "berenjenas": "Berenjenas con miel de caña",
+      "tajin": "Tajín de verduras con especias marroquíes"
+    },
+    "vegetarian": {
+      "title": "Opciones Vegetarianas y Veganas",
+      "vegBurger": "Hamburguesa vegana con pan artesanal",
+      "vegTapas": "Selección de tapas vegetarianas de temporada"
+    },
+    "drinks": {
+      "title": "Bebidas",
+      "wine": "Vinos locales de Granada",
+      "beer": "Cervezas artesanales",
+      "tea": "Té moruno tradicional"
+    }
+  },
+  "thePatio": {
+    "title": "El Patio",
+    "subtitle": "Nuestro rincón mágico",
+    "description": "Un patio escondido con plantas, luz cálida y el auténtico encanto del Albaicín. Un espacio íntimo donde cada rincón cuenta una historia."
+  },
+  "howToFindUs": {
+    "title": "Cómo llegar",
+    "subtitle": "Te esperamos en el corazón del Albaicín",
+    "directions": "Estamos en el Albaicín, en una calle tranquila. Busca la puerta con macetas y baja las escaleras. Es un lugar especial que merece la pena descubrir.",
+    "address": "C. Horno del Hoyo 17, Albaicín",
+    "city": "18010 Granada"
   },
   "reservations": {
     "title": "Reservas",
-    "subtitle": "Reserve su mesa y disfrute de una experiencia gastronómica única",
-    "button": "Reservar Mesa",
+    "subtitle": "Recomendamos reservar para cenas",
     "whatsapp": "Reservar por WhatsApp",
-    "phone": "Llamar para Reservar"
-  },
-  "gallery": {
-    "title": "Galería",
-    "subtitle": "Descubre la belleza de nuestro restaurante y nuestros platos"
+    "thefork": "Reservar con TheFork",
+    "phone": "+34 858 98 41 02",
+    "note": "Para una experiencia óptima, te recomendamos hacer tu reserva con antelación."
   },
   "reviews": {
     "title": "Opiniones",
-    "subtitle": "Lo que dicen nuestros clientes",
-    "writeNew": "Escribir una nueva reseña"
+    "subtitle": "Lo que dicen nuestros visitantes",
+    "review1": "Un poco escondido pero merece la pena. El ambiente del patio es único.",
+    "review2": "Opciones vegetarianas excelentes y un servicio muy acogedor.",
+    "review3": "Un rincón mágico en el Albaicín. La comida y el ambiente son increíbles.",
+    "tripadvisor": "Ver más en TripAdvisor"
   },
   "contact": {
     "title": "Contacto",
-    "subtitle": "Visítanos en el corazón de Granada",
-    "address": "Calle del Sacramento, 15, Granada",
-    "phone": "+34 958 123 456",
-    "email": "info@lasacristiagranada.com",
+    "subtitle": "Visítanos en el Albaicín",
+    "address": "C. Horno del Hoyo 17, Albaicín",
+    "city": "18010 Granada",
+    "phone": "+34 858 98 41 02",
     "hours": "Horarios",
-    "hoursDetail": "Martes a Domingo: 13:00-16:00, 20:00-24:00"
+    "hoursDetail": "12:30–16:30 / 18:30–23:30",
+    "closed": "Cerrado los lunes",
+    "socialMedia": "Síguenos en redes sociales"
   },
   "footer": {
-    "rights": "© 2024 La Sacristía. Todos los derechos reservados.",
+    "brand": "El Higo",
+    "hours": "12:30–16:30 / 18:30–23:30 (Cerrado lunes)",
     "followUs": "Síguenos",
-    "location": "Ubicación"
+    "location": "Albaicín, Granada",
+    "disclaimer": "Website creado con fines demostrativos."
   }
 }
