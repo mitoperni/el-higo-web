@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-      <Gallery />
+      {/* <Gallery /> */}
       <Reviews />
     </>
   );

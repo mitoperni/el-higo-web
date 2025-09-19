@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 const HowToFindUsPage = () => {
   const { t } = useTranslation();
@@ -82,7 +82,7 @@ const HowToFindUsPage = () => {
 
               <div className="bg-cream p-6 rounded-lg">
                 <h3 className="text-xl font-display font-semibold text-dark-text mb-4">
-                  Instrucciones / Instructions
+                  {t("howToFindUs.instructions")}
                 </h3>
                 <p className="font-body text-dark-text leading-relaxed">
                   {t("howToFindUs.directions")}
@@ -108,7 +108,7 @@ const HowToFindUsPage = () => {
 
               <div className="mt-6 text-center">
                 <a
-                  href="https://goo.gl/maps/example-link"
+                  href="https://www.google.com/maps/place/El+Higo/@37.1831339,-3.5952544,17z/data=!3m1!4b1!4m6!3m5!1s0xd71fcc66cb5daeb:0xb4bb89f0659d068a!8m2!3d37.1831339!4d-3.5926795!16s%2Fg%2F11bwh5cmx7?hl=en&entry=ttu&g_ep=EgoyMDI1MDkxNi4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center bg-terracotta text-white px-6 py-3 rounded-lg font-body font-semibold hover:bg-green-leaf transition-colors duration-300"
@@ -126,7 +126,7 @@ const HowToFindUsPage = () => {
                       d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                     />
                   </svg>
-                  Abrir en Google Maps / Open in Google Maps
+                  {t("howToFindUs.openInGoogleMaps")}
                 </a>
               </div>
             </div>
@@ -139,7 +139,7 @@ const HowToFindUsPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-display font-bold text-dark-text text-center mb-12">
-              Consejos para llegar / Getting Here Tips
+              {t("howToFindUs.gettingHereTips")}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -161,12 +161,11 @@ const HowToFindUsPage = () => {
                     </svg>
                   </div>
                   <h3 className="text-xl font-display font-semibold text-dark-text">
-                    A pie / Walking
+                    {t("howToFindUs.walking.title")}
                   </h3>
                 </div>
                 <p className="font-body text-dark-text">
-                  Desde Plaza Nueva: 10 minutos caminando por el Albaicín. From
-                  Plaza Nueva: 10-minute walk through the Albaicín.
+                  {t("howToFindUs.walking.description")}
                 </p>
               </div>
 
@@ -188,12 +187,11 @@ const HowToFindUsPage = () => {
                     </svg>
                   </div>
                   <h3 className="text-xl font-display font-semibold text-dark-text">
-                    Transporte público / Public Transport
+                    {t("howToFindUs.publicTransport.title")}
                   </h3>
                 </div>
                 <p className="font-body text-dark-text">
-                  Minibus C31, C32 - Parada "Albaicín". Minibus C31, C32 - Stop
-                  "Albaicín".
+                  {t("howToFindUs.publicTransport.description")}
                 </p>
               </div>
             </div>

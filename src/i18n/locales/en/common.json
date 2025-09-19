@@ -44,7 +44,18 @@
     "subtitle": "We await you in the heart of the Albaicín",
     "directions": "We're located in the Albaicín, on a quiet street. Look for the door with flower pots and go down the stairs. It's a special place worth discovering.",
     "address": "C. Horno del Hoyo 17, Albaicín",
-    "city": "18010 Granada"
+    "city": "18010 Granada",
+    "instructions": "Instructions",
+    "openInGoogleMaps": "Open in Google Maps",
+    "gettingHereTips": "Getting Here Tips",
+    "walking": {
+      "title": "Walking",
+      "description": "From Plaza Nueva: 10-minute walk through the Albaicín."
+    },
+    "publicTransport": {
+      "title": "Public Transport",
+      "description": "Minibus C31, C32 - Stop 'Albaicín'."
+    }
   },
   "reservations": {
     "title": "Reservations",

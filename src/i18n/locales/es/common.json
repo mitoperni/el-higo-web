@@ -44,7 +44,18 @@
     "subtitle": "Te esperamos en el corazón del Albaicín",
     "directions": "Estamos en el Albaicín, en una calle tranquila. Busca la puerta con macetas y baja las escaleras. Es un lugar especial que merece la pena descubrir.",
     "address": "C. Horno del Hoyo 17, Albaicín",
-    "city": "18010 Granada"
+    "city": "18010 Granada",
+    "instructions": "Instrucciones",
+    "openInGoogleMaps": "Abrir en Google Maps",
+    "gettingHereTips": "Consejos para llegar",
+    "walking": {
+      "title": "A pie",
+      "description": "Desde Plaza Nueva: 10 minutos caminando por el Albaicín."
+    },
+    "publicTransport": {
+      "title": "Transporte público",
+      "description": "Minibus C31, C32 - Parada 'Albaicín'."
+    }
   },
   "reservations": {
     "title": "Reservas",
