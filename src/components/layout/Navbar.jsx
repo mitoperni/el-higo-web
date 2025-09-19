@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const location = useLocation();
-  const { navigateWithLanguage, switchLanguage } = useLanguageNavigation();
+  const { switchLanguage } = useLanguageNavigation();
   const languageDropdownRef = useRef(null);
 
   const languages = [
@@ -49,19 +49,6 @@ const Navbar = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-
-  const handleNavigation = (path, sectionId = null) => {
-    const currentBasePath = getCurrentBasePath();
-    if (currentBasePath !== path) {
-      navigateWithLanguage(path);
-    } else if (sectionId) {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-    setIsMenuOpen(false);
-  };
 
   const getCurrentBasePath = () => {
     const path = location.pathname;
