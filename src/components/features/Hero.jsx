@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import LanguageLink from '../ui/LanguageLink';
+import heroImage from '../../assets/IMG_1941.PNG';
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -7,12 +8,14 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-black">
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")',
+          backgroundImage: `url(${heroImage})`,
+          filter: 'sepia(30%) saturate(120%) hue-rotate(10deg) brightness(0.9) contrast(1.1)',
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/40 via-orange-800/30 to-red-900/20"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
       </div>
 
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">

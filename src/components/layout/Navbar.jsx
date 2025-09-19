@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import LanguageLink from "../ui/LanguageLink";
@@ -7,13 +7,48 @@ import { useLanguageNavigation } from "../../hooks/useLanguageNavigation";
 const Navbar = () => {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const location = useLocation();
   const { navigateWithLanguage, switchLanguage } = useLanguageNavigation();
+  const languageDropdownRef = useRef(null);
 
-  const toggleLanguage = () => {
-    const newLang = i18n.language === "es" ? "en" : "es";
-    switchLanguage(newLang);
+  const languages = [
+    {
+      code: 'es',
+      name: 'Español',
+      flag: '🇪🇸',
+      nativeName: 'Español',
+      description: 'Cambiar a español'
+    },
+    {
+      code: 'en',
+      name: 'English',
+      flag: '🇺🇸',
+      nativeName: 'English',
+      description: 'Switch to English'
+    }
+  ];
+
+  const currentLanguage = languages.find(lang => lang.code === i18n.language);
+  const otherLanguage = languages.find(lang => lang.code !== i18n.language);
+
+  const toggleLanguage = (langCode) => {
+    switchLanguage(langCode);
+    setIsLanguageOpen(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (languageDropdownRef.current && !languageDropdownRef.current.contains(event.target)) {
+        setIsLanguageOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleNavigation = (path, sectionId = null) => {
     const currentBasePath = getCurrentBasePath();
@@ -94,12 +129,6 @@ const Navbar = () => {
               >
                 {t("navbar.reservations")}
               </LanguageLink>
-              <button
-                onClick={() => handleNavigation("/", "reviews")}
-                className="text-dark-text hover:bg-terracotta/10 hover:text-terracotta px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                {t("navbar.reviews")}
-              </button>
               <LanguageLink
                 to="/contacto"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
@@ -113,13 +142,59 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center relative" ref={languageDropdownRef}>
             <button
-              onClick={toggleLanguage}
-              className="bg-terracotta hover:bg-green-leaf text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+              className="flex items-center gap-3 bg-gradient-to-r from-white to-cream border-2 border-terracotta/30 text-terracotta hover:border-terracotta hover:shadow-lg px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 group backdrop-blur-sm"
+              aria-label="Selector de idioma"
             >
-              {i18n.language === "es" ? "EN" : "ES"}
+              <div className="flex items-center gap-2">
+                <span className="text-lg transform group-hover:scale-110 transition-transform duration-200">
+                  {currentLanguage?.flag}
+                </span>
+                <span className="font-semibold">{currentLanguage?.nativeName}</span>
+              </div>
+              <svg
+                className={`w-4 h-4 transition-transform duration-200 ${isLanguageOpen ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
             </button>
+
+            {isLanguageOpen && (
+              <div className="absolute top-full right-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-terracotta/20 overflow-hidden z-50 transform transition-all duration-200 origin-top-right animate-in fade-in slide-in-from-top-2">
+                <div className="p-1">
+                  {languages.map((language) => (
+                    <button
+                      key={language.code}
+                      onClick={() => toggleLanguage(language.code)}
+                      className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all duration-200 group ${
+                        language.code === i18n.language
+                          ? 'bg-terracotta/10 text-terracotta border border-terracotta/20'
+                          : 'hover:bg-terracotta/5 text-dark-text hover:text-terracotta'
+                      }`}
+                      title={language.description}
+                    >
+                      <span className="text-xl transform group-hover:scale-110 transition-transform duration-200">
+                        {language.flag}
+                      </span>
+                      <div className="flex-1">
+                        <div className="font-semibold">{language.nativeName}</div>
+                        <div className="text-xs opacity-70">{language.description}</div>
+                      </div>
+                      {language.code === i18n.language && (
+                        <svg className="w-4 h-4 text-terracotta" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="md:hidden">
@@ -207,12 +282,6 @@ const Navbar = () => {
             >
               {t("navbar.reservations")}
             </LanguageLink>
-            <button
-              onClick={() => handleNavigation("/", "reviews")}
-              className="text-dark-text hover:bg-terracotta/10 hover:text-terracotta block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
-            >
-              {t("navbar.reviews")}
-            </button>
             <LanguageLink
               to="/contacto"
               onClick={() => setIsMenuOpen(false)}
@@ -226,10 +295,18 @@ const Navbar = () => {
             </LanguageLink>
             <div className="px-3 py-2">
               <button
-                onClick={toggleLanguage}
-                className="bg-terracotta hover:bg-green-leaf text-white px-3 py-2 rounded-md text-sm font-medium w-full transition-colors"
+                onClick={() => {toggleLanguage(otherLanguage?.code); setIsMenuOpen(false);}}
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all duration-200 group bg-white border border-terracotta/20 text-terracotta hover:bg-terracotta/5 hover:border-terracotta/40"
               >
-                {i18n.language === "es" ? "English" : "Español"}
+                <span className="text-xl transform group-hover:scale-110 transition-transform duration-200">
+                  {otherLanguage?.flag}
+                </span>
+                <div className="flex-1">
+                  <div className="font-semibold">{otherLanguage?.nativeName}</div>
+                  <div className="text-xs text-dark-text/60">
+                    {otherLanguage?.description}
+                  </div>
+                </div>
               </button>
             </div>
           </div>
