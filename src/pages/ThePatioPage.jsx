@@ -1,75 +1,88 @@
-import { useTranslation } from 'react-i18next';
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import ImageModal from "../components/ui/ImageModal";
 
 const ThePatioPage = () => {
   const { t } = useTranslation();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const patioImages = [
-    { 
-      src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop&crop=center',
-      alt: 'El Higo Patio 1'
+    {
+      src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/10/b0/7b/chill-out.jpg?w=1800&h=1000&s=1",
+      alt: "El Higo Patio 1",
     },
-    { 
-      src: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop&crop=center',
-      alt: 'El Higo Patio 2'
+    {
+      src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/17/b0/94/el-higo.jpg?w=1800&h=1000&s=1",
+      alt: "El Higo Patio 2",
     },
-    { 
-      src: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&h=600&fit=crop&crop=center',
-      alt: 'El Higo Patio 3'
+    {
+      src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/17/b0/87/el-higo.jpg?w=1800&h=1000&s=1",
+      alt: "El Higo Patio 3",
     },
-    { 
-      src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop&crop=center',
-      alt: 'El Higo Patio 4'
+    {
+      src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/17/b0/78/el-higo.jpg?w=1200&h=700&s=1",
+      alt: "El Higo Patio 4",
     },
-    { 
-      src: 'https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=800&h=600&fit=crop&crop=center',
-      alt: 'El Higo Patio 5'
+    {
+      src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/1e/cc/78/la-higuera.jpg?w=1400&h=-1&s=1",
+      alt: "El Higo Patio 5",
     },
-    { 
-      src: 'https://images.unsplash.com/photo-1552566669-54c581bc7b31?w=800&h=600&fit=crop&crop=center',
-      alt: 'El Higo Patio 6'
-    }
+    {
+      src: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/da/55/69/patio.jpg?w=1800&h=-1&s=1",
+      alt: "El Higo Patio 6",
+    },
   ];
+
+  const openModal = (index) => {
+    setCurrentImageIndex(index);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const navigateImage = (index) => {
+    setCurrentImageIndex(index);
+  };
 
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
-      <section className="relative h-96 bg-gradient-to-r from-terracotta to-green-leaf">
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-        <div className="relative container mx-auto px-4 h-full flex items-center justify-center">
-          <div className="text-center text-white">
-            <h1 className="text-5xl font-display font-bold mb-4">
-              {t('thePatio.title')}
-            </h1>
-            <p className="text-xl font-body">
-              {t('thePatio.subtitle')}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Description Section */}
-      <section className="py-16 bg-cream">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg text-dark-text font-body leading-relaxed">
-              {t('thePatio.description')}
-            </p>
-          </div>
+      <section className="pt-20 bg-cream">
+        <div className="text-center">
+          <h1 className="text-4xl md:text-5xl font-display font-bold text-dark-text mb-4">
+            {t("thePatio.title")}
+          </h1>
+          <div className="w-24 h-1 bg-terracotta mx-auto mb-6"></div>
+          <p className="text-xl text-dark-text max-w-2xl mx-auto font-body">
+            {t("thePatio.description")}
+          </p>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-cream">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {patioImages.map((image, index) => (
-              <div key={index} className="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+              <div
+                key={index}
+                className="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                onClick={() => openModal(index)}
+              >
                 <img
                   src={image.src}
                   alt={image.alt}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <svg className="w-12 h-12 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                  </svg>
+                </div>
               </div>
             ))}
           </div>
@@ -80,18 +93,29 @@ const ThePatioPage = () => {
       <section className="py-16 bg-terracotta text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-display font-bold mb-6">
-            {t('hero.cta')}
+            {t("hero.cta")}
           </h2>
           <a
             href={`https://wa.me/34858984102?text=${encodeURIComponent(
-              t('reservations.note')
+              t("reservations.note")
             )}`}
             className="inline-block bg-white text-terracotta px-8 py-3 rounded-lg font-body font-semibold hover:bg-cream transition-colors duration-300"
           >
-            {t('reservations.whatsapp')}
+            {t("reservations.whatsapp")}
           </a>
         </div>
       </section>
+
+      {/* Image Modal */}
+      <ImageModal
+        isOpen={modalOpen}
+        onClose={closeModal}
+        imageSrc={patioImages[currentImageIndex]?.src}
+        imageAlt={patioImages[currentImageIndex]?.alt}
+        images={patioImages}
+        currentIndex={currentImageIndex}
+        onNavigate={navigateImage}
+      />
     </div>
   );
 };
