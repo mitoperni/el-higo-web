@@ -2,13 +2,13 @@
   "title": "Our Menu",
   "subtitle": "Authentic flavors in the heart of the Albaicín",
   "categories": {
-    "portions": "Portions",
+    "starters": "Starters",
     "sandwiches": "Sandwiches",
     "salads": "Salads",
     "meat_and_fish": "Meat & Fish"
   },
   "items": {
-    "portions": [
+    "starters": [
       {
         "name": "Avocado with prawns",
         "description": "Avocado, prawns, homemade cocktail sauce",
@@ -26,8 +26,8 @@
         "price": "12€"
       },
       {
-        "name": "Trevélez ham",
-        "description": "Smoked ham from the Alpujarras",
+        "name": "Trevélez serrano ham",
+        "description": "Smoked serrano ham from the Alpujarras",
         "price": "11€"
       },
       {

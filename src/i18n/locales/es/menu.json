@@ -2,13 +2,13 @@
   "title": "Nuestra Carta",
   "subtitle": "Sabores auténticos en el corazón del Albaicín",
   "categories": {
-    "portions": "Raciones",
+    "starters": "Raciones",
     "sandwiches": "Bocadillos",
     "salads": "Ensaladas",
     "meat_and_fish": "Carnes y Pescados"
   },
   "items": {
-    "portions": [
+    "starters": [
       {
         "name": "Aguacate con langostinos",
         "description": "Aguacate, langostinos, salsa cocktail casera",
