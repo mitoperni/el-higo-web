@@ -62,6 +62,25 @@
     "review3": "Un rincón mágico en el Albaicín. La comida y el ambiente son increíbles.",
     "tripadvisor": "Ver más en TripAdvisor"
   },
+  "gallery": {
+    "title": "Galería",
+    "subtitle": "Descubre nuestro espacio y cocina",
+    "categories": {
+      "all": "Todas",
+      "restaurant": "Restaurante",
+      "food": "Comida"
+    },
+    "imageAlt": {
+      "restaurantInterior": "Interior del restaurante",
+      "preparedTable": "Mesa preparada",
+      "gourmetDish": "Plato gourmet",
+      "mainCourse": "Plato principal",
+      "professionalKitchen": "Cocina profesional",
+      "artisanalDessert": "Postre artesanal",
+      "nightAmbiance": "Ambiente nocturno",
+      "terraceDining": "Cena en terraza"
+    }
+  },
   "contact": {
     "title": "Contacto",
     "subtitle": "Visítanos en el Albaicín",

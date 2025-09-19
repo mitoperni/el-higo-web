@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 
 function SEOManager() {
   const { t, i18n } = useTranslation();
@@ -55,25 +55,74 @@ function SEOManager() {
     return { es: `${baseUrl}${path}`, en: `${baseUrl}${path}` };
   };
 
+  const getPageTitle = useCallback(() => {
+    const path = location.pathname;
+    const baseBrand = "El Higo";
+
+    if (path === '/' || path === '/en') {
+      return `${baseBrand} - ${t("hero.title")}`;
+    } else if (path === '/carta' || path === '/en/menu') {
+      return `${t("menu.title")} - ${baseBrand}`;
+    } else if (path === '/el-patio' || path === '/en/the-patio') {
+      return `${t("thePatio.title")} - ${baseBrand}`;
+    } else if (path === '/como-llegar' || path === '/en/how-to-find-us') {
+      return `${t("howToFindUs.title")} - ${baseBrand}`;
+    } else if (path === '/reservas' || path === '/en/reservations') {
+      return `${t("reservations.title")} - ${baseBrand}`;
+    } else if (path === '/opiniones' || path === '/en/reviews') {
+      return `${t("reviews.title")} - ${baseBrand}`;
+    } else if (path === '/contacto' || path === '/en/contact') {
+      return `${t("contact.title")} - ${baseBrand}`;
+    } else if (path === '/galeria' || path === '/en/gallery') {
+      return `${t("gallery.title")} - ${baseBrand}`;
+    }
+
+    return `${baseBrand} - ${t("hero.title")}`;
+  }, [location.pathname, t]);
+
+  const getPageDescription = useCallback(() => {
+    const path = location.pathname;
+
+    if (path === '/' || path === '/en') {
+      return t("hero.subtitle");
+    } else if (path === '/carta' || path === '/en/menu') {
+      return t("menu.subtitle");
+    } else if (path === '/el-patio' || path === '/en/the-patio') {
+      return t("thePatio.subtitle");
+    } else if (path === '/como-llegar' || path === '/en/how-to-find-us') {
+      return t("howToFindUs.subtitle");
+    } else if (path === '/reservas' || path === '/en/reservations') {
+      return t("reservations.subtitle");
+    } else if (path === '/opiniones' || path === '/en/reviews') {
+      return t("reviews.subtitle");
+    } else if (path === '/contacto' || path === '/en/contact') {
+      return t("contact.subtitle");
+    } else if (path === '/galeria' || path === '/en/gallery') {
+      return t("gallery.subtitle");
+    }
+
+    return t("hero.subtitle");
+  }, [location.pathname, t]);
+
   const alternateUrls = getAlternateUrls();
 
-  // Update html lang attribute using useEffect for the html tag
+  // Update html lang attribute and title using useEffect
   useEffect(() => {
     document.documentElement.lang = i18n.language;
-  }, [i18n.language]);
+    document.title = getPageTitle();
+  }, [i18n.language, location.pathname, t, getPageTitle]);
 
   return (
     <>
-      <title>El Higo - {t("hero.title")}</title>
-      <meta name="description" content={t("hero.subtitle")} />
+      <meta name="description" content={getPageDescription()} />
       <meta
         name="keywords"
         content="El Higo, restaurante Granada, Albaicín, patio escondido, tapas, vegetariano, vegano, hummus, berenjenas, tajín, hidden restaurant Granada, vegetarian Granada"
       />
 
       <meta property="og:type" content="restaurant" />
-      <meta property="og:title" content={`El Higo - ${t("hero.title")}`} />
-      <meta property="og:description" content={t("hero.subtitle")} />
+      <meta property="og:title" content={getPageTitle()} />
+      <meta property="og:description" content={getPageDescription()} />
       <meta property="og:url" content="https://elhigogranada.com" />
       <meta property="og:site_name" content="El Higo" />
       <meta
@@ -88,9 +137,9 @@ function SEOManager() {
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:title"
-        content={`El Higo - ${t("hero.title")}`}
+        content={getPageTitle()}
       />
-      <meta name="twitter:description" content={t("hero.subtitle")} />
+      <meta name="twitter:description" content={getPageDescription()} />
       <meta
         name="twitter:image"
         content="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
