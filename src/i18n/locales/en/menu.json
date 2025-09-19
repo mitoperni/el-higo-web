@@ -60,11 +60,13 @@
       {
         "name": "Vegan burger",
         "description": "Spinach or oat burger 180g, tomato, lettuce, pickles, caramelized onion, mayonnaise and Dijon mustard",
-        "options": "Gluten-free option: spinach and gluten-free bread"
+        "options": "Gluten-free option: spinach and gluten-free bread",
+        "price": "8€"
       },
       {
         "name": "Beef burger",
-        "description": "200g prime beef, tomato, lettuce, pickles, caramelized onion, mayonnaise and mustard"
+        "description": "200g prime beef, tomato, lettuce, pickles, caramelized onion, mayonnaise and mustard",
+        "price": "8.50€"
       }
     ],
     "salads": [
@@ -75,37 +77,45 @@
       {
         "name": "Spinach and turkey",
         "description": "Spinach, cherry tomato, pear, grilled turkey breast with sesame, walnuts, sunflower seeds, parmesan cheese and seasonal jam vinaigrette with EVOO",
-        "options": "Vegetarian: goat cheese • Vegan: turkey substitute (seitan base) and vegan parmesan"
+        "options": "Vegetarian: goat cheese • Vegan: turkey substitute (seitan base) and vegan parmesan",
+        "price": "9.50€"
       },
       {
         "name": "Smoked fish",
-        "description": "Smoked cod, pomfret, swordfish and salmon, guacamole and green leaves"
+        "description": "Smoked cod, pomfret, swordfish and salmon, guacamole and green leaves",
+        "price": "11€"
       },
       {
         "name": "Caprese di buffala",
-        "description": "Tomato, buffalo mozzarella and basil pesto with walnuts and EVOO"
+        "description": "Tomato, buffalo mozzarella and basil pesto with walnuts and EVOO",
+        "price": "11€"
       }
     ],
     "meat_and_fish": [
       {
         "name": "Red tuna",
-        "description": "with wok vegetables"
+        "description": "with wok vegetables",
+        "price": "20€"
       },
       {
         "name": "Gratinated cod",
-        "description": "with wok vegetables"
+        "description": "with wok vegetables",
+        "price": "18€"
       },
       {
         "name": "Beef skirt steak",
-        "description": "with garnish"
+        "description": "with garnish",
+        "price": "17€"
       },
       {
         "name": "Beef cheek",
-        "description": "in carrot, mustard and honey sauce, with couscous garnish"
+        "description": "in carrot, mustard and honey sauce, with couscous garnish",
+        "price": "18€"
       },
       {
         "name": "Children's dish",
-        "description": "Grilled turkey with potatoes"
+        "description": "Grilled turkey with potatoes",
+        "price": "8€"
       }
     ]
   },
