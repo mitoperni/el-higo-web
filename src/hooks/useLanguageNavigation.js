@@ -13,12 +13,16 @@ export const useLanguageNavigation = () => {
       es: {
         '/': '/',
         '/carta': '/carta',
+        '/el-patio': '/el-patio',
+        '/como-llegar': '/como-llegar',
         '/reservas': '/reservas',
         '/contacto': '/contacto'
       },
       en: {
         '/': '/en',
         '/carta': '/en/menu',
+        '/el-patio': '/en/the-patio',
+        '/como-llegar': '/en/how-to-find-us',
         '/reservas': '/en/reservations',
         '/contacto': '/en/contact'
       }
@@ -49,13 +53,15 @@ export const useLanguageNavigation = () => {
   
   const getCurrentRouteKey = () => {
     const path = location.pathname;
-    
+
     // Map current path back to base route key
     if (path === '/' || path === '/en') return '/';
     if (path === '/carta' || path === '/en/menu') return '/carta';
+    if (path === '/el-patio' || path === '/en/the-patio') return '/el-patio';
+    if (path === '/como-llegar' || path === '/en/how-to-find-us') return '/como-llegar';
     if (path === '/reservas' || path === '/en/reservations') return '/reservas';
     if (path === '/contacto' || path === '/en/contact') return '/contacto';
-    
+
     return path;
   };
   

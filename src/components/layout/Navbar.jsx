@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const location = useLocation();
-  const { switchLanguage } = useLanguageNavigation();
+  const { navigateWithLanguage, switchLanguage } = useLanguageNavigation();
   const languageDropdownRef = useRef(null);
 
   const languages = [
@@ -49,7 +49,7 @@ const Navbar = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-
+  
   const getCurrentBasePath = () => {
     const path = location.pathname;
     if (path === "/" || path === "/en") return "/";
