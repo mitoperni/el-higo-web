@@ -79,8 +79,18 @@ const ThePatioPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <svg className="w-12 h-12 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                  <svg
+                    className="w-12 h-12 text-white drop-shadow-lg"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                    />
                   </svg>
                 </div>
               </div>
@@ -90,16 +100,16 @@ const ThePatioPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-terracotta text-white">
+      <section className="pb-16 bg-cream text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-display font-bold mb-6">
+          <h2 className="text-3xl text-terracotta font-display font-bold mb-6">
             {t("hero.cta")}
           </h2>
           <a
             href={`https://wa.me/34858984102?text=${encodeURIComponent(
               t("reservations.note")
             )}`}
-            className="inline-block bg-white text-terracotta px-8 py-3 rounded-lg font-body font-semibold hover:bg-cream transition-colors duration-300"
+            className="inline-block bg-green-leaf hover:bg-terracotta text-white px-8 py-3 rounded-lg font-body font-semibold hover:bg-cream transition-colors duration-300"
           >
             {t("reservations.whatsapp")}
           </a>

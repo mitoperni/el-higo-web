@@ -1,6 +1,8 @@
 import { useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 
 const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt, images, currentIndex, onNavigate }) => {
+  const { t } = useTranslation();
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -31,7 +33,7 @@ const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt, images, currentIndex,
       <button
         onClick={onClose}
         className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
-        aria-label="Cerrar modal"
+        aria-label={t('imageModal.closeButton')}
       >
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -45,7 +47,7 @@ const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt, images, currentIndex,
             <button
               onClick={() => onNavigate(currentIndex - 1)}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10"
-              aria-label="Imagen anterior"
+              aria-label={t('imageModal.previousButton')}
             >
               <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -57,7 +59,7 @@ const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt, images, currentIndex,
             <button
               onClick={() => onNavigate(currentIndex + 1)}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10"
-              aria-label="Imagen siguiente"
+              aria-label={t('imageModal.nextButton')}
             >
               <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

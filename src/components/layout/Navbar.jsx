@@ -15,17 +15,17 @@ const Navbar = () => {
   const languages = [
     {
       code: 'es',
-      name: 'Español',
+      name: t('languageSelector.spanish.name'),
       flag: '🇪🇸',
-      nativeName: 'Español',
-      description: 'Cambiar a español'
+      nativeName: t('languageSelector.spanish.name'),
+      description: t('languageSelector.spanish.description')
     },
     {
       code: 'en',
-      name: 'English',
+      name: t('languageSelector.english.name'),
       flag: '🇺🇸',
-      nativeName: 'English',
-      description: 'Switch to English'
+      nativeName: t('languageSelector.english.name'),
+      description: t('languageSelector.english.description')
     }
   ];
 
@@ -133,7 +133,7 @@ const Navbar = () => {
             <button
               onClick={() => setIsLanguageOpen(!isLanguageOpen)}
               className="flex items-center gap-3 bg-gradient-to-r from-white to-cream border-2 border-terracotta/30 text-terracotta hover:border-terracotta hover:shadow-lg px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 group backdrop-blur-sm"
-              aria-label="Selector de idioma"
+              aria-label={t('languageSelector.ariaLabel')}
             >
               <div className="flex items-center gap-2">
                 <span className="text-lg transform group-hover:scale-110 transition-transform duration-200">

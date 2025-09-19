@@ -62,8 +62,12 @@
     "subtitle": "Recomendamos reservar para cenas",
     "whatsapp": "Reservar por WhatsApp",
     "thefork": "Reservar con TheFork",
+    "whatsappTitle": "WhatsApp",
+    "theforkTitle": "TheFork",
     "phone": "+34 858 98 41 02",
-    "note": "Para una experiencia óptima, te recomendamos hacer tu reserva con antelación."
+    "note": "Para una experiencia óptima, te recomendamos hacer tu reserva con antelación.",
+    "whatsappMessage": "Hola! Me gustaría hacer una reserva en El Higo. Gracias!",
+    "comingSoon": "Próximamente disponible"
   },
   "reviews": {
     "title": "Opiniones",
@@ -98,14 +102,43 @@
     "address": "C. Horno del Hoyo 17, Albaicín",
     "city": "18010 Granada",
     "phone": "+34 858 98 41 02",
+    "phoneLabel": "Teléfono",
+    "locationLabel": "Ubicación",
+    "addressLabel": "Dirección",
+    "whatsappLabel": "WhatsApp",
+    "informationTitle": "Información de contacto",
+    "locationTitle": "Ubicación",
+    "visitUsTitle": "¿Vienes a visitarnos?",
+    "openInMaps": "Abrir en Google Maps",
+    "call": "Llamar",
     "hours": "Horarios",
     "hoursDetail": "12:30–16:30 / 18:30–23:30",
     "closed": "Cerrado los lunes",
     "socialMedia": "Síguenos en redes sociales"
   },
+  "imageModal": {
+    "closeButton": "Cerrar modal",
+    "previousButton": "Imagen anterior",
+    "nextButton": "Imagen siguiente"
+  },
+  "languageSelector": {
+    "ariaLabel": "Selector de idioma",
+    "spanish": {
+      "name": "Español",
+      "description": "Cambiar a español"
+    },
+    "english": {
+      "name": "English",
+      "description": "Cambiar a inglés"
+    }
+  },
   "footer": {
     "brand": "El Higo",
-    "hours": "12:30–16:30 / 18:30–23:30 (Cerrado lunes)",
+    "description": "Un rincón escondido en el Albaicín de Granada donde cada plato cuenta una historia y cada visita es una experiencia única.",
+    "navigation": "Navegación",
+    "contactSection": "Contacto",
+    "whatsapp": "WhatsApp",
+    "hours": "12:30–16:30 / 18:30–23:30",
     "followUs": "Síguenos",
     "location": "Albaicín, Granada",
     "disclaimer": "Website creado con fines demostrativos."

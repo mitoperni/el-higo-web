@@ -62,8 +62,12 @@
     "subtitle": "We recommend booking for dinner",
     "whatsapp": "Book via WhatsApp",
     "thefork": "Book with TheFork",
+    "whatsappTitle": "WhatsApp",
+    "theforkTitle": "TheFork",
     "phone": "+34 858 98 41 02",
-    "note": "For an optimal experience, we recommend making your reservation in advance."
+    "note": "For an optimal experience, we recommend making your reservation in advance.",
+    "whatsappMessage": "Hello! I would like to make a reservation at El Higo. Thank you!",
+    "comingSoon": "Coming soon"
   },
   "reviews": {
     "title": "Reviews",
@@ -98,14 +102,43 @@
     "address": "C. Horno del Hoyo 17, Albaicín",
     "city": "18010 Granada",
     "phone": "+34 858 98 41 02",
+    "phoneLabel": "Phone",
+    "locationLabel": "Location",
+    "addressLabel": "Address",
+    "whatsappLabel": "WhatsApp",
+    "informationTitle": "Contact Information",
+    "locationTitle": "Location",
+    "visitUsTitle": "Coming to visit us?",
+    "openInMaps": "Open in Google Maps",
+    "call": "Call",
     "hours": "Opening Hours",
     "hoursDetail": "12:30–4:30 PM / 6:30–11:30 PM",
-    "closed": "Closed Mondays",
+    "closed": "Closed on Mondays",
     "socialMedia": "Follow us on social media"
+  },
+  "imageModal": {
+    "closeButton": "Close modal",
+    "previousButton": "Previous image",
+    "nextButton": "Next image"
+  },
+  "languageSelector": {
+    "ariaLabel": "Language selector",
+    "spanish": {
+      "name": "Español",
+      "description": "Switch to Spanish"
+    },
+    "english": {
+      "name": "English",
+      "description": "Switch to English"
+    }
   },
   "footer": {
     "brand": "El Higo",
-    "hours": "12:30–4:30 PM / 6:30–11:30 PM (Closed Mondays)",
+    "description": "A hidden corner in Granada's Albaicín where every dish tells a story and every visit is a unique experience.",
+    "navigation": "Navigation",
+    "contactSection": "Contact",
+    "whatsapp": "WhatsApp",
+    "hours": "12:30–4:30 PM / 6:30–11:30 PM",
     "followUs": "Follow us",
     "location": "Albaicín, Granada",
     "disclaimer": "Website mockup created for demonstration purposes."

@@ -26,8 +26,8 @@ const ReviewCard = ({ review }) => (
         {review.name ? review.name.charAt(0) : 'A'}
       </div>
       <div className="ml-4">
-        <h3 className="font-display font-semibold text-dark-text">{review.name || 'Anonymous'}</h3>
-        <p className="text-sm text-dark-text opacity-70 font-body">{review.date || 'Recent'}</p>
+        <h3 className="font-display font-semibold text-dark-text">{review.name || t('reviews.anonymous')}</h3>
+        <p className="text-sm text-dark-text opacity-70 font-body">{review.date || t('reviews.recent')}</p>
       </div>
     </div>
 
@@ -113,7 +113,7 @@ const Reviews = () => {
               {t('reviews.tripadvisor')}
             </h3>
             <p className="text-dark-text mb-6 font-body">
-              Comparte tu experiencia en El Higo / Share your El Higo experience
+              {t('reviews.shareExperience')}
             </p>
             <a
               href="https://www.tripadvisor.com/UserReviewEdit-g187441-d123456-El_Higo-Granada.html"
