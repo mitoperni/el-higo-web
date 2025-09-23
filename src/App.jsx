@@ -18,7 +18,7 @@ function AppContent() {
 
   useEffect(() => {
     const hasSeenDisclaimer = localStorage.getItem('hasSeenMockupDisclaimer');
-    if (!hasSeenDisclaimer) {
+    if (hasSeenDisclaimer !== 'true') {
       setShowDisclaimer(true);
     }
 

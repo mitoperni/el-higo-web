@@ -1,38 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageLink from '../ui/LanguageLink';
-import Spinner from '../ui/Spinner';
 import heroImage from '../../assets/IMG_1941.PNG';
 
-const Hero = () => {
+const Hero = ({ onImageLoad }) => {
   const { t } = useTranslation();
-  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
-    const img = new Image();
-    img.onload = () => setImageLoaded(true);
-    img.src = heroImage;
-  }, []);
+    if (onImageLoad) {
+      const img = new Image();
+      img.onload = () => onImageLoad(true);
+      img.src = heroImage;
+    }
+  }, [onImageLoad]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-black">
-      {!imageLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black">
-          <Spinner size="large" className="text-white" />
-        </div>
-      )}
-      {imageLoaded && (
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80 animate-in fade-in duration-500"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-            filter: 'sepia(30%) saturate(120%) hue-rotate(10deg) brightness(0.9) contrast(1.1)',
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-900/40 via-orange-800/30 to-red-900/20"></div>
-          <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-        </div>
-      )}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80"
+        style={{
+          backgroundImage: `url(${heroImage})`,
+          filter: 'sepia(30%) saturate(120%) hue-rotate(10deg) brightness(0.9) contrast(1.1)',
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/40 via-orange-800/30 to-red-900/20"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+      </div>
 
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">

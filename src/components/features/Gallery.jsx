@@ -91,28 +91,31 @@ const Gallery = () => {
           {images.map((image, index) => (
             <div
               key={index}
-              className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 h-64"
               onClick={() => openModal(image)}
             >
-              {loadingImages[index] && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
+              {loadingImages[index] ? (
+                <div className="w-full h-64 flex items-center justify-center bg-gray-100 rounded-lg">
                   <Spinner size="medium" className="text-amber-600" />
                 </div>
+              ) : (
+                <>
+                  <img
+                    src={image.src}
+                    alt={`${image.alt} - La Sacristía Granada`}
+                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                    loading="lazy"
+                    width="300"
+                    height="256"
+                    onLoadStart={() => handleImageLoadStart(index)}
+                    onLoad={() => handleImageLoad(index)}
+                    onError={() => handleImageLoad(index)}
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300 flex items-center justify-center">
+                    <Icons.SearchPlus className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                </>
               )}
-              <img
-                src={image.src}
-                alt={`${image.alt} - La Sacristía Granada`}
-                className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
-                loading="lazy"
-                width="300"
-                height="256"
-                onLoadStart={() => handleImageLoadStart(index)}
-                onLoad={() => handleImageLoad(index)}
-                onError={() => handleImageLoad(index)}
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300 flex items-center justify-center">
-                <Icons.SearchPlus className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
             </div>
           ))}
         </div>

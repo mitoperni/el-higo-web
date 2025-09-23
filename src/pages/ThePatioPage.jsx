@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import ImageModal from "../components/ui/ImageModal";
 import Icons from "../components/ui/Icons";
+import Spinner from "../components/ui/Spinner";
 
 const ThePatioPage = () => {
   const { t } = useTranslation();
   const [modalOpen, setModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const patioImages = [
     {
@@ -35,6 +37,27 @@ const ThePatioPage = () => {
     },
   ];
 
+  useEffect(() => {
+    let loadedCount = 0;
+
+    patioImages.forEach((image) => {
+      const img = new Image();
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === patioImages.length) {
+          setImagesLoaded(true);
+        }
+      };
+      img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === patioImages.length) {
+          setImagesLoaded(true);
+        }
+      };
+      img.src = image.src;
+    });
+  }, []);
+
   const openModal = (index) => {
     setCurrentImageIndex(index);
     setModalOpen(true);
@@ -47,6 +70,14 @@ const ThePatioPage = () => {
   const navigateImage = (index) => {
     setCurrentImageIndex(index);
   };
+
+  if (!imagesLoaded) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-cream pt-16">
+        <Spinner size="large" className="text-terracotta" />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen pt-16">

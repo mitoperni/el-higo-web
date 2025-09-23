@@ -1,11 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Spinner from '../ui/Spinner';
-import { getMenuData } from '../../data/menuData';
+import { getMenuData, getAllMenuImages } from '../../data/menuData';
 
-const Menu = () => {
+const Menu = ({ onImagesLoad }) => {
   const { t } = useTranslation(['menu', 'common']);
   const [loadingImages, setLoadingImages] = useState({});
+
+  useEffect(() => {
+    if (onImagesLoad) {
+      const allImages = getAllMenuImages();
+      let loadedCount = 0;
+
+      allImages.forEach((imageSrc, index) => {
+        const img = new Image();
+        img.onload = () => {
+          loadedCount++;
+          if (loadedCount === allImages.length) {
+            onImagesLoad(true);
+          }
+        };
+        img.onerror = () => {
+          loadedCount++;
+          if (loadedCount === allImages.length) {
+            onImagesLoad(true);
+          }
+        };
+        img.src = imageSrc;
+      });
+    }
+  }, [onImagesLoad]);
 
   const menuCategories = getMenuData(t);
 
@@ -48,7 +72,7 @@ const Menu = () => {
                       <div key={index} className="group">
                         <div className="relative overflow-hidden rounded-lg mb-3 h-48">
                           {loadingImages[`${category.id}-${index}`] ? (
-                            <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                            <div className="w-full h-48 flex items-center justify-center bg-gray-100 rounded-lg">
                               <Spinner size="medium" className="text-terracotta" />
                             </div>
                           ) : (
