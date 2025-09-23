@@ -75,7 +75,10 @@
     "review1": "Un poco escondido pero merece la pena. El ambiente del patio es único.",
     "review2": "Opciones vegetarianas excelentes y un servicio muy acogedor.",
     "review3": "Un rincón mágico en el Albaicín. La comida y el ambiente son increíbles.",
-    "tripadvisor": "Ver más en TripAdvisor"
+    "tripadvisor": "Ver más en TripAdvisor",
+    "shareExperience": "¿Te gustó tu visita?",
+    "reviewCallToAction": "Ayuda a otros viajeros a descubrir El Higo compartiendo tu experiencia en TripAdvisor",
+    "writeReview": "Escribir una Opinión"
   },
   "gallery": {
     "title": "Galería",

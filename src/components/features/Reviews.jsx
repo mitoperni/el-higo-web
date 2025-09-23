@@ -1,54 +1,55 @@
 import { useTranslation } from "react-i18next";
+import Icons from "../ui/Icons";
 
 const StarRating = ({ rating }) => {
   return (
     <div className="flex space-x-1 mb-3">
       {[1, 2, 3, 4, 5].map((star) => (
-        <svg
+        <Icons.Star
           key={star}
           className={`w-5 h-5 ${
             star <= rating ? "text-terracotta" : "text-gray-300"
           }`}
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
+          filled={star <= rating}
+        />
       ))}
     </div>
   );
 };
 
-const ReviewCard = ({ review }) => (
-  <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-    <div className="flex items-center mb-4">
-      <div className="w-12 h-12 bg-terracotta rounded-full flex items-center justify-center text-white font-bold text-lg">
-        {review.name ? review.name.charAt(0) : 'A'}
+const ReviewCard = ({ review }) => {
+  const { t } = useTranslation();
+  return (
+    <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+      <div className="flex items-center mb-4">
+        <div className="w-12 h-12 bg-terracotta rounded-full flex items-center justify-center text-white font-bold text-lg">
+          {review.name ? review.name.charAt(0) : "A"}
+        </div>
+        <div className="ml-4">
+          <h3 className="font-display font-semibold text-dark-text">
+            {review.name || t("reviews.anonymous")}
+          </h3>
+          <p className="text-sm text-dark-text opacity-70 font-body">
+            {review.date || t("reviews.recent")}
+          </p>
+        </div>
       </div>
-      <div className="ml-4">
-        <h3 className="font-display font-semibold text-dark-text">{review.name || t('reviews.anonymous')}</h3>
-        <p className="text-sm text-dark-text opacity-70 font-body">{review.date || t('reviews.recent')}</p>
+
+      <StarRating rating={review.rating} />
+
+      <p className="text-dark-text leading-relaxed font-body">
+        {review.comment}
+      </p>
+
+      <div className="mt-4 pt-4 border-t border-gray-200">
+        <div className="flex items-center text-sm text-dark-text opacity-60 font-body">
+          <Icons.CheckCircle className="w-4 h-4 mr-1" />
+          TripAdvisor / Google Reviews
+        </div>
       </div>
     </div>
-
-    <StarRating rating={review.rating} />
-
-    <p className="text-dark-text leading-relaxed font-body">{review.comment}</p>
-
-    <div className="mt-4 pt-4 border-t border-gray-200">
-      <div className="flex items-center text-sm text-dark-text opacity-60 font-body">
-        <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-          <path
-            fillRule="evenodd"
-            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-            clipRule="evenodd"
-          />
-        </svg>
-        TripAdvisor / Google Reviews
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
 const Reviews = () => {
   const { t } = useTranslation();
@@ -57,21 +58,21 @@ const Reviews = () => {
     {
       name: "María S.",
       rating: 5,
-      comment: t('reviews.review1'),
-      date: "TripAdvisor"
+      comment: t("reviews.review1"),
+      date: "TripAdvisor",
     },
     {
       name: "James P.",
       rating: 5,
-      comment: t('reviews.review2'),
-      date: "Google Reviews"
+      comment: t("reviews.review2"),
+      date: "Google Reviews",
     },
     {
       name: "Carmen G.",
       rating: 5,
-      comment: t('reviews.review3'),
-      date: "TripAdvisor"
-    }
+      comment: t("reviews.review3"),
+      date: "TripAdvisor",
+    },
   ];
 
   const averageRating = 5;
@@ -96,7 +97,8 @@ const Reviews = () => {
               </span>
             </div>
             <span className="text-dark-text font-body">
-              Basado en {reviews.length} opiniones / Based on {reviews.length} reviews
+              Basado en {reviews.length} opiniones / Based on {reviews.length}{" "}
+              reviews
             </span>
           </div>
         </div>
@@ -108,31 +110,23 @@ const Reviews = () => {
         </div>
 
         <div className="text-center mt-16">
-          <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-display font-bold text-dark-text mb-4">
-              {t('reviews.tripadvisor')}
-            </h3>
-            <p className="text-dark-text mb-6 font-body">
-              {t('reviews.shareExperience')}
-            </p>
+          <div className="bg-gradient-to-br from-warm-beige to-white rounded-lg shadow-xl p-8 max-w-2xl mx-auto border border-terracotta/20">
+            <div className="mb-6">
+              <h3 className="text-3xl font-display font-bold text-dark-text mb-2">
+                {t("reviews.shareExperience")}
+              </h3>
+              <p className="text-dark-text/80 mb-6 font-body text-lg leading-relaxed">
+                {t("reviews.reviewCallToAction")}
+              </p>
+            </div>
             <a
               href="https://www.tripadvisor.com/UserReviewEdit-g187441-d123456-El_Higo-Granada.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-terracotta hover:bg-green-leaf text-white font-body font-bold py-3 px-8 rounded-lg transition-colors duration-300"
+              className="inline-flex items-center bg-terracotta hover:bg-green-leaf text-white font-body font-bold py-4 px-10 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             >
-              <svg
-                className="w-5 h-5 mr-2"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              {t('reviews.tripadvisor')}
+              <Icons.Plus className="w-5 h-5 mr-3" />
+              {t("reviews.writeReview")}
             </a>
           </div>
         </div>
