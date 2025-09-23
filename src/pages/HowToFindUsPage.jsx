@@ -3,6 +3,24 @@ import { useTranslation } from "react-i18next";
 const HowToFindUsPage = () => {
   const { t } = useTranslation();
 
+  const handleOpenMaps = () => {
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+
+    if (isMobile) {
+      // Para móviles: usar protocolo geo para abrir app nativa
+      window.location.href = "geo:37.1831339,-3.5926795?q=El+Higo";
+    } else {
+      // Para escritorio: abrir Google Maps en nueva pestaña
+      window.open(
+        "https://www.google.com/maps/place/El+Higo/@37.1831339,-3.5952544,17z/data=!3m1!4b1!4m6!3m5!1s0xd71fcc66cb5daeb:0xb4bb89f0659d068a!8m2!3d37.1831339!4d-3.5926795!16s%2Fg%2F11bwh5cmx7?hl=en&entry=ttu&g_ep=EgoyMDI1MDkxNi4wIKXMDSoASAFQAw%3D%3D",
+        "_blank"
+      );
+    }
+  };
+
   return (
     <div className="min-h-screen pt-16">
       <section className="py-20 bg-cream">
@@ -94,7 +112,7 @@ const HowToFindUsPage = () => {
             <div>
               <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.0987654321098!2d-3.5916667846813145!3d37.17617997989123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fcb1b1234567%3A0x1234567890abcdef!2sC.%20Horno%20del%20Hoyo%2C%2017%2C%2018010%20Granada%2C%20Spain!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3171.8856!2d-3.5926795!3d37.1831339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd71fcc66cb5daeb%3A0xb4bb89f0659d068a!2sEl%20Higo!5e0!3m2!1sen!2sus!4v1726934400000!5m2!1sen!2sus"
                   width="100%"
                   height="400"
                   style={{ border: 0 }}
@@ -107,10 +125,8 @@ const HowToFindUsPage = () => {
               </div>
 
               <div className="mt-6 text-center">
-                <a
-                  href="https://www.google.com/maps/place/El+Higo/@37.1831339,-3.5952544,17z/data=!3m1!4b1!4m6!3m5!1s0xd71fcc66cb5daeb:0xb4bb89f0659d068a!8m2!3d37.1831339!4d-3.5926795!16s%2Fg%2F11bwh5cmx7?hl=en&entry=ttu&g_ep=EgoyMDI1MDkxNi4wIKXMDSoASAFQAw%3D%3D"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={handleOpenMaps}
                   className="inline-flex items-center bg-terracotta text-white px-6 py-3 rounded-lg font-body font-semibold hover:bg-green-leaf transition-colors duration-300"
                 >
                   <svg
@@ -126,8 +142,8 @@ const HowToFindUsPage = () => {
                       d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                     />
                   </svg>
-                  {t("howToFindUs.openInGoogleMaps")}
-                </a>
+                  {t("howToFindUs.takeMeThere")}
+                </button>
               </div>
             </div>
           </div>
