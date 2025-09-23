@@ -72,7 +72,8 @@
     "salads": [
       {
         "name": "El Higo",
-        "description": "Mezclum de lechugas, tomate, cebolleta, zanahoria, pepino, maíz, frutas variadas y salsa de queso de cabra"
+        "description": "Mezclum de lechugas, tomate, cebolleta, zanahoria, pepino, maíz, frutas variadas y salsa de queso de cabra",
+        "price": "9,50€"
       },
       {
         "name": "Espinacas y pavo",
