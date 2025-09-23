@@ -46,20 +46,21 @@ const Menu = () => {
                   {Array.isArray(category.items) &&
                     category.items.map((item, index) => (
                       <div key={index} className="group">
-                        <div className="relative overflow-hidden rounded-lg mb-3">
-                          {loadingImages[`${category.id}-${index}`] && (
-                            <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
+                        <div className="relative overflow-hidden rounded-lg mb-3 h-48">
+                          {loadingImages[`${category.id}-${index}`] ? (
+                            <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
                               <Spinner size="medium" className="text-terracotta" />
                             </div>
+                          ) : (
+                            <img
+                              src={category.images[index] || category.images[0]}
+                              alt={item.name}
+                              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                              onLoadStart={() => handleImageLoadStart(category.id, index)}
+                              onLoad={() => handleImageLoad(category.id, index)}
+                              onError={() => handleImageLoad(category.id, index)}
+                            />
                           )}
-                          <img
-                            src={category.images[index] || category.images[0]}
-                            alt={item.name}
-                            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                            onLoadStart={() => handleImageLoadStart(category.id, index)}
-                            onLoad={() => handleImageLoad(category.id, index)}
-                            onError={() => handleImageLoad(category.id, index)}
-                          />
                         </div>
                         <h3 className="font-body font-semibold text-dark-text text-lg leading-tight mb-2">
                           {item.name}
