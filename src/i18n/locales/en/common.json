@@ -70,15 +70,18 @@
     "comingSoon": "Coming soon"
   },
   "reviews": {
-    "title": "Reviews",
-    "subtitle": "What our visitors say",
-    "review1": "Tucked away but worth it. The patio atmosphere is unique.",
-    "review2": "Great vegetarian options and very welcoming service.",
-    "review3": "A magical corner in the Albaicín. The food and atmosphere are incredible.",
-    "tripadvisor": "See more on TripAdvisor",
-    "shareExperience": "Liked your experience?",
-    "reviewCallToAction": "Help other travelers discover El Higo by sharing your visit with us on TripAdvisor",
-    "writeReview": "Write a Review"
+    "title": "What our guests say",
+    "subtitle": "Discover what those who have already enjoyed our traditional Granada cuisine have to say",
+    "shareExperience": "Share your El Higo experience",
+    "reviewCallToAction": "Your opinion helps us continue improving and sharing the authentic gastronomic experience of Granada",
+    "writeReview": "Write a review",
+    "anonymous": "Anonymous",
+    "recent": "Recent",
+    "review1": "An exceptional gastronomic experience. The authentic flavors of Granada in every dish. The honey lamb is spectacular and the service is impeccable.",
+    "review2": "Cozy atmosphere and delicious food. The seafood paella was perfect and the pionono dessert is the best I've ever had. Totally recommended.",
+    "review3": "Charming restaurant in the heart of Granada. The eggplant with honey is a delight and the oxtail melts in your mouth. We will definitely return.",
+    "reviewSource": "TripAdvisor / Google Reviews",
+    "reviewCount": "Based on {{count}} reviews"
   },
   "gallery": {
     "title": "Gallery",

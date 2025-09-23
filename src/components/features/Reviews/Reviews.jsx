@@ -1,55 +1,7 @@
 import { useTranslation } from "react-i18next";
-import Icons from "../ui/Icons";
-
-const StarRating = ({ rating }) => {
-  return (
-    <div className="flex space-x-1 mb-3">
-      {[1, 2, 3, 4, 5].map((star) => (
-        <Icons.Star
-          key={star}
-          className={`w-5 h-5 ${
-            star <= rating ? "text-terracotta" : "text-gray-300"
-          }`}
-          filled={star <= rating}
-        />
-      ))}
-    </div>
-  );
-};
-
-const ReviewCard = ({ review }) => {
-  const { t } = useTranslation();
-  return (
-    <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-      <div className="flex items-center mb-4">
-        <div className="w-12 h-12 bg-terracotta rounded-full flex items-center justify-center text-white font-bold text-lg">
-          {review.name ? review.name.charAt(0) : "A"}
-        </div>
-        <div className="ml-4">
-          <h3 className="font-display font-semibold text-dark-text">
-            {review.name || t("reviews.anonymous")}
-          </h3>
-          <p className="text-sm text-dark-text opacity-70 font-body">
-            {review.date || t("reviews.recent")}
-          </p>
-        </div>
-      </div>
-
-      <StarRating rating={review.rating} />
-
-      <p className="text-dark-text leading-relaxed font-body">
-        {review.comment}
-      </p>
-
-      <div className="mt-4 pt-4 border-t border-gray-200">
-        <div className="flex items-center text-sm text-dark-text opacity-60 font-body">
-          <Icons.CheckCircle className="w-4 h-4 mr-1" />
-          TripAdvisor / Google Reviews
-        </div>
-      </div>
-    </div>
-  );
-};
+import ReviewCard from "./ReviewCard";
+import StarRating from "./StarRating";
+import Icons from "../../ui/Icons";
 
 const Reviews = () => {
   const { t } = useTranslation();
@@ -97,8 +49,7 @@ const Reviews = () => {
               </span>
             </div>
             <span className="text-dark-text font-body">
-              Basado en {reviews.length} opiniones / Based on {reviews.length}{" "}
-              reviews
+              {t("reviews.reviewCount", { count: reviews.length })}
             </span>
           </div>
         </div>

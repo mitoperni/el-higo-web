@@ -70,15 +70,18 @@
     "comingSoon": "Próximamente disponible"
   },
   "reviews": {
-    "title": "Opiniones",
-    "subtitle": "Lo que dicen nuestros visitantes",
-    "review1": "Un poco escondido pero merece la pena. El ambiente del patio es único.",
-    "review2": "Opciones vegetarianas excelentes y un servicio muy acogedor.",
-    "review3": "Un rincón mágico en el Albaicín. La comida y el ambiente son increíbles.",
-    "tripadvisor": "Ver más en TripAdvisor",
-    "shareExperience": "¿Te gustó tu visita?",
-    "reviewCallToAction": "Ayuda a otros viajeros a descubrir El Higo compartiendo tu experiencia en TripAdvisor",
-    "writeReview": "Escribir una Opinión"
+    "title": "Opiniones de nuestros clientes",
+    "subtitle": "Descubre lo que dicen quienes ya han disfrutado de nuestra cocina tradicional granadina",
+    "shareExperience": "Comparte tu experiencia en El Higo",
+    "reviewCallToAction": "Tu opinión nos ayuda a seguir mejorando y compartir la auténtica experiencia gastronómica de Granada",
+    "writeReview": "Escribir una reseña",
+    "anonymous": "Anónimo",
+    "recent": "Reciente",
+    "review1": "Una experiencia gastronómica excepcional. Los sabores auténticos de Granada en cada plato. El cordero a la miel es espectacular y el servicio es impecable.",
+    "review2": "Ambiente acogedor y comida deliciosa. La paella de mariscos estaba perfecta y el pionono de postre es el mejor que he probado. Totalmente recomendable.",
+    "review3": "Restaurante con encanto en pleno centro de Granada. La berenjenas con miel son una delicia y el rabo de toro se deshace en la boca. Volveremos sin duda.",
+    "reviewSource": "TripAdvisor / Google Reviews",
+    "reviewCount": "Basado en {{count}} opiniones"
   },
   "gallery": {
     "title": "Galería",

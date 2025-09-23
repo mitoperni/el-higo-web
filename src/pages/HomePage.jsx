@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Hero from '../components/features/Hero';
 import Gallery from '../components/features/Gallery';
-import Reviews from '../components/features/Reviews';
+import Reviews from '../components/features/Reviews/Reviews';
 import Spinner from '../components/ui/Spinner';
 
 const HomePage = () => {
