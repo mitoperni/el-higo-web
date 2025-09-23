@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Icons from '../ui/Icons';
+import Spinner from '../ui/Spinner';
 
 const Gallery = () => {
   const { t } = useTranslation();
   const [selectedImage, setSelectedImage] = useState(null);
+  const [loadingImages, setLoadingImages] = useState({});
+  const [modalImageLoading, setModalImageLoading] = useState(false);
 
   const images = [
     {
@@ -56,10 +59,19 @@ const Gallery = () => {
 
   const openModal = (image) => {
     setSelectedImage(image);
+    setModalImageLoading(true);
   };
 
   const closeModal = () => {
     setSelectedImage(null);
+  };
+
+  const handleImageLoad = (index) => {
+    setLoadingImages(prev => ({ ...prev, [index]: false }));
+  };
+
+  const handleImageLoadStart = (index) => {
+    setLoadingImages(prev => ({ ...prev, [index]: true }));
   };
 
   return (
@@ -82,6 +94,11 @@ const Gallery = () => {
               className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
               onClick={() => openModal(image)}
             >
+              {loadingImages[index] && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-100 z-10">
+                  <Spinner size="medium" className="text-amber-600" />
+                </div>
+              )}
               <img
                 src={image.src}
                 alt={`${image.alt} - La Sacristía Granada`}
@@ -89,6 +106,9 @@ const Gallery = () => {
                 loading="lazy"
                 width="300"
                 height="256"
+                onLoadStart={() => handleImageLoadStart(index)}
+                onLoad={() => handleImageLoad(index)}
+                onError={() => handleImageLoad(index)}
               />
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300 flex items-center justify-center">
                 <Icons.SearchPlus className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -100,12 +120,19 @@ const Gallery = () => {
         {selectedImage && (
           <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4" onClick={closeModal}>
             <div className="relative max-w-4xl max-h-full">
+              {modalImageLoading && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Spinner size="large" className="text-white" />
+                </div>
+              )}
               <img
                 src={selectedImage.src}
                 alt={`${selectedImage.alt} - La Sacristía Granada`}
                 className="max-w-full max-h-full object-contain rounded-lg"
                 width="800"
                 height="600"
+                onLoad={() => setModalImageLoading(false)}
+                onError={() => setModalImageLoading(false)}
               />
               <button
                 onClick={closeModal}

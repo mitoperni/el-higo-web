@@ -1,14 +1,30 @@
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageLink from '../ui/LanguageLink';
+import Spinner from '../ui/Spinner';
 import heroImage from '../../assets/IMG_1941.PNG';
 
 const Hero = () => {
   const { t } = useTranslation();
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => setImageLoaded(true);
+    img.src = heroImage;
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-black">
+      {!imageLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Spinner size="large" className="text-white" />
+        </div>
+      )}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80"
+        className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-500 ${
+          imageLoaded ? 'opacity-80' : 'opacity-0'
+        }`}
         style={{
           backgroundImage: `url(${heroImage})`,
           filter: 'sepia(30%) saturate(120%) hue-rotate(10deg) brightness(0.9) contrast(1.1)',

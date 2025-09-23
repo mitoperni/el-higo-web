@@ -1,9 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 import Icons from './Icons';
+import Spinner from './Spinner';
 
 const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt, images, currentIndex, onNavigate }) => {
   const { t } = useTranslation();
+  const [imageLoading, setImageLoading] = useState(true);
+  useEffect(() => {
+    if (isOpen) {
+      setImageLoading(true);
+    }
+  }, [isOpen, imageSrc]);
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -66,10 +74,17 @@ const ImageModal = ({ isOpen, onClose, imageSrc, imageAlt, images, currentIndex,
 
       {/* Modal content */}
       <div className="relative max-w-4xl max-h-full mx-4 animate-in zoom-in-95 duration-300">
+        {imageLoading && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Spinner size="large" className="text-white" />
+          </div>
+        )}
         <img
           src={imageSrc}
           alt={imageAlt}
           className="max-w-full max-h-screen object-contain"
+          onLoad={() => setImageLoading(false)}
+          onError={() => setImageLoading(false)}
         />
 
         {/* Image counter */}
