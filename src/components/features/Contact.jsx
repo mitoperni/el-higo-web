@@ -4,7 +4,7 @@ const Contact = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="contact" className="py-20 bg-white h-min-screen">
+    <section id="contact" className="py-20 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-display font-bold text-dark-text mb-4">
@@ -175,7 +175,7 @@ const Contact = () => {
           </div>
 
           <div className="my-auto">
-            <div className="bg-terracotta text-white rounded-lg p-8 max-w-2xl mx-auto">
+            <div className="bg-cream text-dark-text rounded-lg p-8 max-w-2xl mx-auto">
               <h3 className="text-2xl font-display font-bold mb-4">
                 {t("contact.visitUsTitle")}
               </h3>
@@ -185,7 +185,7 @@ const Contact = () => {
                   href={`https://wa.me/34858984102?text=${encodeURIComponent(
                     t("reservations.note")
                   )}`}
-                  className="inline-flex items-center bg-white text-terracotta hover:bg-cream font-body font-bold py-3 px-6 rounded-lg transition-colors duration-300"
+                  className="inline-flex items-center bg-green-leaf text-white hover:bg-white hover:text-green-leaf font-body font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                 >
                   <svg
                     className="w-5 h-5 mr-2"
@@ -198,7 +198,7 @@ const Contact = () => {
                 </a>
                 <a
                   href="tel:+34858984102"
-                  className="inline-flex items-center bg-green-leaf text-white hover:bg-terracotta font-body font-bold py-3 px-6 rounded-lg transition-colors duration-300"
+                  className="inline-flex items-center bg-terracotta text-white hover:bg-white hover:text-terracotta font-body font-bold py-3 px-6 rounded-lg transition-colors duration-300"
                 >
                   <svg
                     className="w-5 h-5 mr-2"

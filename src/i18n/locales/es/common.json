@@ -142,5 +142,10 @@
     "followUs": "Síguenos",
     "location": "Albaicín, Granada",
     "disclaimer": "Website creado con fines demostrativos."
+  },
+  "disclaimer": {
+    "title": "Aviso Importante",
+    "message": "Este sitio web es un prototipo creado con fines demostrativos. No es la página oficial del restaurante El Higo.",
+    "understand": "Entendido"
   }
 }

@@ -142,5 +142,10 @@
     "followUs": "Follow us",
     "location": "Albaicín, Granada",
     "disclaimer": "Website mockup created for demonstration purposes."
+  },
+  "disclaimer": {
+    "title": "Important Notice",
+    "message": "This website is a prototype created for demonstration purposes. It is not the official website of El Higo restaurant.",
+    "understand": "Understood"
   }
 }
