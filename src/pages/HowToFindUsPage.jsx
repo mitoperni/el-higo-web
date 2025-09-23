@@ -10,8 +10,13 @@ const HowToFindUsPage = () => {
       );
 
     if (isMobile) {
-      // Para móviles: usar protocolo geo para abrir app nativa
-      window.location.href = "geo:37.1831339,-3.5926795?q=El+Higo";
+      // Para iOS: usar protocolo maps para abrir app nativa de Apple Maps
+      if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        window.location.href = "maps:?q=El+Higo&ll=37.1831339,-3.5926795";
+      } else {
+        // Para Android: usar protocolo geo
+        window.location.href = "geo:37.1831339,-3.5926795?q=El+Higo";
+      }
     } else {
       // Para escritorio: abrir Google Maps en nueva pestaña
       window.open(
