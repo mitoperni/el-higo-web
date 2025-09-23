@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://lasacristiagranada.com/sitemap.xml
+Sitemap: https://el-higo-web.vercel.app/sitemap.xml
 
 # Crawl-delay (optional)
 Crawl-delay: 1
@@ -12,9 +12,13 @@ Crawl-delay: 1
 
 # Allow specific important pages
 Allow: /carta
+Allow: /el-patio
+Allow: /como-llegar
 Allow: /reservas
 Allow: /contacto
 Allow: /en/
 Allow: /en/menu
+Allow: /en/the-patio
+Allow: /en/how-to-find-us
 Allow: /en/reservations
 Allow: /en/contact
