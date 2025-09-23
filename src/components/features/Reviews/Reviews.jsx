@@ -61,7 +61,7 @@ const Reviews = () => {
         </div>
 
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-br from-warm-beige to-white rounded-lg shadow-xl p-8 max-w-2xl mx-auto border border-terracotta/20">
+          <div className="bg-white rounded-lg shadow-xl p-8 max-w-2xl mx-auto">
             <div className="mb-6">
               <h3 className="text-3xl font-display font-bold text-dark-text mb-2">
                 {t("reviews.shareExperience")}
