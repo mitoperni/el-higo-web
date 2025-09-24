@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .claude
+.SEO_PROPOSAL_EL_HIGO.md
 
 # Editor directories and files
 .vscode/*

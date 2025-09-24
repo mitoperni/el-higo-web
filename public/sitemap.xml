@@ -1,34 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://lasacristiagranada.com/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://lasacristiagranada.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://lasacristiagranada.com/en/" />
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://el-higo-web.vercel.app/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://el-higo-web.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://el-higo-web.vercel.app/en" />
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://lasacristiagranada.com/carta</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://lasacristiagranada.com/carta" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://lasacristiagranada.com/en/menu" />
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://el-higo-web.vercel.app/carta</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://el-higo-web.vercel.app/carta" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://el-higo-web.vercel.app/en/menu" />
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://lasacristiagranada.com/reservas</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://lasacristiagranada.com/reservas" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://lasacristiagranada.com/en/reservations" />
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://el-higo-web.vercel.app/el-patio</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://el-higo-web.vercel.app/el-patio" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://el-higo-web.vercel.app/en/the-patio" />
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lasacristiagranada.com/contacto</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://lasacristiagranada.com/contacto" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://lasacristiagranada.com/en/contact" />
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <loc>https://el-higo-web.vercel.app/como-llegar</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://el-higo-web.vercel.app/como-llegar" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://el-higo-web.vercel.app/en/how-to-find-us" />
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://el-higo-web.vercel.app/reservas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://el-higo-web.vercel.app/reservas" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://el-higo-web.vercel.app/en/reservations" />
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://el-higo-web.vercel.app/contacto</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://el-higo-web.vercel.app/contacto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://el-higo-web.vercel.app/en/contact" />
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
