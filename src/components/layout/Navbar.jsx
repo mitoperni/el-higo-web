@@ -9,9 +9,11 @@ const Navbar = () => {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isMobileLanguageOpen, setIsMobileLanguageOpen] = useState(false);
   const location = useLocation();
   const { switchLanguage } = useLanguageNavigation();
   const languageDropdownRef = useRef(null);
+  const mobileLanguageDropdownRef = useRef(null);
 
   const languages = [
     {
@@ -31,17 +33,20 @@ const Navbar = () => {
   ];
 
   const currentLanguage = languages.find(lang => lang.code === i18n.language);
-  const otherLanguage = languages.find(lang => lang.code !== i18n.language);
 
   const toggleLanguage = (langCode) => {
     switchLanguage(langCode);
     setIsLanguageOpen(false);
+    setIsMobileLanguageOpen(false);
   };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (languageDropdownRef.current && !languageDropdownRef.current.contains(event.target)) {
         setIsLanguageOpen(false);
+      }
+      if (mobileLanguageDropdownRef.current && !mobileLanguageDropdownRef.current.contains(event.target)) {
+        setIsMobileLanguageOpen(false);
       }
     };
 
@@ -130,19 +135,28 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="hidden md:flex items-center relative" ref={languageDropdownRef}>
+          <div
+            className="hidden md:flex items-center relative"
+            ref={languageDropdownRef}
+          >
             <button
               onClick={() => setIsLanguageOpen(!isLanguageOpen)}
               className="flex items-center gap-3 bg-gradient-to-r from-white to-cream border-2 border-terracotta/30 text-terracotta hover:border-terracotta hover:shadow-lg px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 group backdrop-blur-sm"
-              aria-label={t('languageSelector.ariaLabel')}
+              aria-label={t("languageSelector.ariaLabel")}
             >
               <div className="flex items-center gap-2">
                 <span className="text-lg transform group-hover:scale-110 transition-transform duration-200">
                   {currentLanguage?.flag}
                 </span>
-                <span className="font-semibold">{currentLanguage?.nativeName}</span>
+                <span className="font-semibold">
+                  {currentLanguage?.nativeName}
+                </span>
               </div>
-              <Icons.ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isLanguageOpen ? 'rotate-180' : ''}`} />
+              <Icons.ChevronDown
+                className={`w-4 h-4 transition-transform duration-200 ${
+                  isLanguageOpen ? "rotate-180" : ""
+                }`}
+              />
             </button>
 
             {isLanguageOpen && (
@@ -154,8 +168,8 @@ const Navbar = () => {
                       onClick={() => toggleLanguage(language.code)}
                       className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all duration-200 group ${
                         language.code === i18n.language
-                          ? 'bg-terracotta/10 text-terracotta border border-terracotta/20'
-                          : 'hover:bg-terracotta/5 text-dark-text hover:text-terracotta'
+                          ? "bg-terracotta/10 text-terracotta border border-terracotta/20"
+                          : "hover:bg-terracotta/5 text-dark-text hover:text-terracotta"
                       }`}
                       title={language.description}
                     >
@@ -163,8 +177,12 @@ const Navbar = () => {
                         {language.flag}
                       </span>
                       <div className="flex-1">
-                        <div className="font-semibold">{language.nativeName}</div>
-                        <div className="text-xs opacity-70">{language.description}</div>
+                        <div className="font-semibold">
+                          {language.nativeName}
+                        </div>
+                        <div className="text-xs opacity-70">
+                          {language.description}
+                        </div>
                       </div>
                       {language.code === i18n.language && (
                         <Icons.Check className="w-4 h-4 text-terracotta" />
@@ -181,8 +199,12 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-dark-text hover:text-terracotta hover:bg-terracotta/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-terracotta"
             >
-              <Icons.Menu className={`${isMenuOpen ? "hidden" : "block"} h-6 w-6`} />
-              <Icons.Close className={`${isMenuOpen ? "block" : "hidden"} h-6 w-6`} />
+              <Icons.Menu
+                className={`${isMenuOpen ? "hidden" : "block"} h-6 w-6`}
+              />
+              <Icons.Close
+                className={`${isMenuOpen ? "block" : "hidden"} h-6 w-6`}
+              />
             </button>
           </div>
         </div>
@@ -246,21 +268,65 @@ const Navbar = () => {
             >
               {t("navbar.contact")}
             </LanguageLink>
-            <div className="px-3 py-2">
+            <div className="relative" ref={mobileLanguageDropdownRef}>
               <button
-                onClick={() => {toggleLanguage(otherLanguage?.code); setIsMenuOpen(false);}}
-                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all duration-200 group bg-white border border-terracotta/20 text-terracotta hover:bg-terracotta/5 hover:border-terracotta/40"
+                onClick={() => setIsMobileLanguageOpen(!isMobileLanguageOpen)}
+                className="w-full flex items-center gap-3 px-4 py-2 mt-2 rounded-xl text-left transition-all duration-200 group bg-white border border-terracotta/20 text-terracotta focus:bg-terracotta/10 focus:border-terracotta/20 focus:text-terracotta"
+                aria-label={t("languageSelector.ariaLabel")}
               >
                 <span className="text-xl transform group-hover:scale-110 transition-transform duration-200">
-                  {otherLanguage?.flag}
+                  {currentLanguage?.flag}
                 </span>
                 <div className="flex-1">
-                  <div className="font-semibold">{otherLanguage?.nativeName}</div>
-                  <div className="text-xs text-dark-text/60">
-                    {otherLanguage?.description}
+                  <div className="font-semibold">
+                    {currentLanguage?.nativeName}
                   </div>
                 </div>
+                <Icons.ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    isMobileLanguageOpen ? "rotate-180" : ""
+                  }`}
+                />
               </button>
+
+              {isMobileLanguageOpen && (
+                <div className="absolute top-full left-0 right-0 mt-0.2 bg-white rounded-xl shadow-2xl border border-terracotta/20 overflow-hidden z-50 transform transition-all duration-200 origin-top animate-in fade-in slide-in-from-top-2">
+                  <div className="p-1">
+                    {languages.map((language) => (
+                      <button
+                        key={language.code}
+                        onClick={() => {
+                          toggleLanguage(language.code);
+                          setIsMenuOpen(false);
+                        }}
+                        className={`w-full flex items-center gap-3 px-4 py-2 rounded-lg text-left transition-all duration-200 group ${
+                          language.code === i18n.language
+                            ? "bg-terracotta/10 text-terracotta border border-terracotta/20"
+                            : "hover:bg-terracotta/5 text-dark-text hover:text-terracotta"
+                        }`}
+                        title={language.description}
+                      >
+                        <span className="text-xl transform group-hover:scale-110 transition-transform duration-200">
+                          {language.flag}
+                        </span>
+                        <div className="flex-1">
+                          <div className="font-semibold">
+                            {language.nativeName}
+                          </div>
+                          <div className="text-xs opacity-70">
+                            {language.code === i18n.language
+                              ? ''
+                              : language.description}
+                          </div>
+                        </div>
+                        {language.code === i18n.language && (
+                          <Icons.Check className="w-4 h-4 text-terracotta" />
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

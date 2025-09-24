@@ -131,11 +131,11 @@
     "ariaLabel": "Selector de idioma",
     "spanish": {
       "name": "Español",
-      "description": "Cambiar a español"
+      "description": "Cambiar a Español"
     },
     "english": {
       "name": "English",
-      "description": "Cambiar a inglés"
+      "description": "Change to English"
     }
   },
   "footer": {
