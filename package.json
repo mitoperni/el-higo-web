@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && react-snap > /dev/null 2>&1",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -28,7 +28,43 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "postcss": "^8.5.6",
+    "puppeteer": "^24.22.3",
+    "react-snap": "^1.23.0",
     "tailwindcss": "^3.4.17",
+    "terser": "^5.44.0",
     "vite": "^7.1.2"
+  },
+  "reactSnap": {
+    "source": "dist",
+    "include": [
+      "/",
+      "/carta",
+      "/el-patio",
+      "/como-llegar",
+      "/reservas",
+      "/contacto",
+      "/en",
+      "/en/menu",
+      "/en/the-patio",
+      "/en/how-to-find-us",
+      "/en/reservations",
+      "/en/contact"
+    ],
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-web-security",
+      "--disable-features=VizDisplayCompositor"
+    ],
+    "waitFor": 1000,
+    "minifyHtml": {
+      "collapseWhitespace": false,
+      "removeComments": false
+    },
+    "crawl": true,
+    "userAgent": "ReactSnap",
+    "skipThirdPartyRequests": true,
+    "removeBlobs": true,
+    "fixWebpackChunksIssue": true
   }
 }

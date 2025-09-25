@@ -146,10 +146,10 @@ const Navbar = () => {
             >
               <div className="flex items-center gap-2">
                 <span className="text-lg transform group-hover:scale-110 transition-transform duration-200">
-                  {currentLanguage?.flag}
+                  {currentLanguage && currentLanguage.flag}
                 </span>
                 <span className="font-semibold">
-                  {currentLanguage?.nativeName}
+                  {currentLanguage && currentLanguage.nativeName}
                 </span>
               </div>
               <Icons.ChevronDown
@@ -275,11 +275,11 @@ const Navbar = () => {
                 aria-label={t("languageSelector.ariaLabel")}
               >
                 <span className="text-xl transform group-hover:scale-110 transition-transform duration-200">
-                  {currentLanguage?.flag}
+                  {currentLanguage && currentLanguage.flag}
                 </span>
                 <div className="flex-1">
                   <div className="font-semibold">
-                    {currentLanguage?.nativeName}
+                    {currentLanguage && currentLanguage.nativeName}
                   </div>
                 </div>
                 <Icons.ChevronDown

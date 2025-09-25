@@ -28,7 +28,7 @@ export const useLanguageNavigation = () => {
       }
     };
     
-    return routeMap[lang]?.[route] || route;
+    return (routeMap[lang] && routeMap[lang][route]) || route;
   };
   
   const getCurrentLanguageFromPath = () => {

@@ -140,8 +140,8 @@ const ThePatioPage = () => {
       <ImageModal
         isOpen={modalOpen}
         onClose={closeModal}
-        imageSrc={patioImages[currentImageIndex]?.src}
-        imageAlt={patioImages[currentImageIndex]?.alt}
+        imageSrc={patioImages[currentImageIndex] && patioImages[currentImageIndex].src}
+        imageAlt={patioImages[currentImageIndex] && patioImages[currentImageIndex].alt}
         images={patioImages}
         currentIndex={currentImageIndex}
         onNavigate={navigateImage}
