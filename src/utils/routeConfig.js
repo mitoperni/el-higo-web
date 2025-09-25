@@ -4,6 +4,7 @@ import ThePatioPage from '../pages/ThePatioPage';
 import HowToFindUsPage from '../pages/HowToFindUsPage';
 import ReservationsPage from '../pages/ReservationsPage';
 import ContactPage from '../pages/ContactPage';
+import NotFoundPage from '../pages/NotFoundPage';
 
 // Route configuration with SEO data
 export const routeConfig = [

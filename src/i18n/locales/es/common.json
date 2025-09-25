@@ -153,5 +153,11 @@
     "title": "Aviso Importante",
     "message": "Este sitio web es un prototipo creado con fines demostrativos. No es la página oficial del restaurante El Higo.",
     "understand": "Entendido"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página que buscas se ha perdido en los laberintos del Albaicín. Pero no te preocupes, te ayudamos a encontrar el camino de vuelta a El Higo.",
+    "homeButton": "Volver al inicio",
+    "suggestion": "O explora nuestro menú y reserva tu mesa para descubrir los auténticos sabores de Granada."
   }
 }

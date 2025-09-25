@@ -153,5 +153,11 @@
     "title": "Important Notice",
     "message": "This website is a prototype created for demonstration purposes. It is not the official website of El Higo restaurant.",
     "understand": "Understood"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for has gotten lost in the Albaicín's maze. But don't worry, we'll help you find your way back to El Higo.",
+    "homeButton": "Return home",
+    "suggestion": "Or explore our menu and book your table to discover the authentic flavors of Granada."
   }
 }
