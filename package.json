@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && react-snap > /dev/null 2>&1",
+    "build": "vite build && react-snap",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -58,13 +58,11 @@
     ],
     "waitFor": 1000,
     "minifyHtml": {
-      "collapseWhitespace": false,
-      "removeComments": false
+      "collapseWhitespace": false
     },
     "crawl": true,
     "userAgent": "ReactSnap",
     "skipThirdPartyRequests": true,
-    "removeBlobs": true,
     "fixWebpackChunksIssue": true
   }
 }
